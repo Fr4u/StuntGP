@@ -1,0 +1,7 @@
+include_guard(GLOBAL)
+if(NOT TARGET race_session)
+  message(FATAL_ERROR "source_time_trial_selection requires race_session")
+endif()
+add_library(source_time_trial_selection STATIC "${PROJECT_SOURCE_DIR}/src/source_time_trial_selection.cpp")
+target_include_directories(source_time_trial_selection PUBLIC "${PROJECT_SOURCE_DIR}/include")
+target_link_libraries(source_time_trial_selection PUBLIC race_session)

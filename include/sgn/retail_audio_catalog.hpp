@@ -1,0 +1,87 @@
+// Generated from pinned 00489D40 descriptor table and SFX WAD.
+// EXE SHA256: 4a1d234ce1f095a427bb7f2f0174294b8c85a8fdbbc29b62a3863156b2f16a1b
+#pragma once
+#include <array>
+#include <cstdint>
+#include <string_view>
+namespace sgn::retail
+{
+struct AudioSampleDefinition
+{
+    std::uint32_t slot, type;
+    std::string_view resource;
+};
+inline constexpr std::array<AudioSampleDefinition, 71> audio_sample_definitions{{
+    {1u, 2u, "sound\\sfx\\petes-revving.wav"},
+    {2u, 2u, "sound\\sfx\\karls-revving.wav"},
+    {3u, 2u, "sound\\sfx\\mgfboot-revving.wav"},
+    {4u, 2u, "sound\\sfx\\stefans-revving.wav"},
+    {5u, 2u, "sound\\sfx\\engine3-revving.wav"},
+    {6u, 2u, "sound\\sfx\\petes-idling.wav"},
+    {7u, 2u, "sound\\sfx\\karls-idling.wav"},
+    {8u, 2u, "sound\\sfx\\mgfboot-idling.wav"},
+    {9u, 2u, "sound\\sfx\\stefans-idling.wav"},
+    {10u, 2u, "sound\\sfx\\engine3-idling.wav"},
+    {11u, 2u, "sound\\sfx\\turbo1.wav"},
+    {12u, 2u, "sound\\sfx\\crashwall1.wav"},
+    {13u, 2u, "sound\\sfx\\crashwall2.wav"},
+    {14u, 2u, "sound\\sfx\\crashwall3.wav"},
+    {15u, 1u, "sound\\sfx\\crowdpart1.wav"},
+    {16u, 1u, "sound\\sfx\\crowdpart2.wav"},
+    {17u, 1u, "sound\\sfx\\combo01.wav"},
+    {18u, 1u, "sound\\sfx\\combo02.wav"},
+    {19u, 1u, "sound\\sfx\\combo03.wav"},
+    {20u, 1u, "sound\\sfx\\combo04.wav"},
+    {21u, 1u, "sound\\sfx\\combo05.wav"},
+    {22u, 1u, "sound\\sfx\\lofuel.wav"},
+    {23u, 1u, "sound\\sfx\\powerjump.wav"},
+    {24u, 2u, "sound\\sfx\\roadnoise1.wav"},
+    {25u, 2u, "sound\\sfx\\scrape1.wav"},
+    {26u, 2u, "sound\\sfx\\skidloop.wav"},
+    {27u, 2u, "sound\\sfx\\skidsand.wav"},
+    {28u, 2u, "sound\\sfx\\carland.wav"},
+    {29u, 2u, "sound\\sfx\\travsand.wav"},
+    {30u, 2u, "sound\\sfx\\driveshaft.wav"},
+    {31u, 2u, "sound\\sfx\\carbottoming1.wav"},
+    {32u, 1u, "sound\\sfx\\servo1.wav"},
+    {33u, 1u, "sound\\sfx\\gearchange1.wav"},
+    {34u, 2u, "sound\\sfx\\hornloop01.wav"},
+    {35u, 2u, "sound\\sfx\\hornloop02.wav"},
+    {36u, 2u, "sound\\sfx\\hornloop03.wav"},
+    {37u, 2u, "sound\\sfx\\hornloop04.wav"},
+    {38u, 2u, "sound\\sfx\\hornloop06.wav"},
+    {39u, 1u, "sound\\sfx\\elecloop01.wav"},
+    {40u, 1u, "sound\\sfx\\elec01.wav"},
+    {41u, 1u, "sound\\sfx\\elec02.wav"},
+    {42u, 1u, "sound\\sfx\\elec04.wav"},
+    {43u, 1u, "sound\\sfx\\elec05.wav"},
+    {44u, 1u, "sound\\sfx\\start1.wav"},
+    {45u, 1u, "sound\\sfx\\start2.wav"},
+    {46u, 1u, "sound\\sfx\\swoosh1.wav"},
+    {47u, 1u, "sound\\sfx\\swoosh2.wav"},
+    {48u, 1u, "sound\\sfx\\menublip1.wav"},
+    {49u, 1u, "sound\\sfx\\menublip2.wav"},
+    {50u, 1u, "sound\\sfx\\clunk.wav"},
+    {51u, 1u, "sound\\sfx\\fe-dialogmove.wav"},
+    {52u, 1u, "sound\\sfx\\fe-dialogcancel.wav"},
+    {53u, 1u, "sound\\sfx\\fe-dialogconfirm.wav"},
+    {54u, 1u, "sound\\sfx\\fe-keypressed.wav"},
+    {55u, 1u, "sound\\sfx\\fe-keydeleted.wav"},
+    {56u, 1u, "sound\\sfx\\fe-cardschanged.wav"},
+    {57u, 1u, "sound\\sfx\\fe-cardserror.wav"},
+    {58u, 1u, "sound\\sfx\\fe-cardssuccess.wav"},
+    {59u, 1u, "sound\\sfx\\fe-warning.wav"},
+    {60u, 1u, "sound\\sfx\\fe-timertick.wav"},
+    {61u, 1u, "sound\\sfx\\fe-bonustick.wav"},
+    {62u, 1u, "sound\\sfx\\fe-bonuschime.wav"},
+    {63u, 1u, "sound\\sfx\\fe-bonuscomplete.wav"},
+    {64u, 1u, "sound\\sfx\\fe-vehicleupgrade.wav"},
+    {65u, 1u, "sound\\sfx\\fe-vehicledowngrade.wav"},
+    {66u, 1u, "sound\\sfx\\fe-gameload.wav"},
+    {67u, 1u, "sound\\sfx\\fe-iconappear.wav"},
+    {68u, 1u, "sound\\sfx\\fe-menuappear.wav"},
+    {69u, 1u, "sound\\sfx\\fe-menudisappear.wav"},
+    {70u, 1u, "sound\\sfx\\fe-bitmapscroll.wav"},
+    {71u, 1u, "sound\\sfx\\fe-vmodscroll.wav"},
+}};
+} // namespace sgn::retail

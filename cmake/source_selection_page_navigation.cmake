@@ -1,0 +1,5 @@
+include_guard(GLOBAL)
+if(NOT TARGET race_session)
+ message(FATAL_ERROR "selection navigation requires race_session and source page factories")
+endif()
+target_sources(race_session PRIVATE "${PROJECT_SOURCE_DIR}/src/source_selection_page_navigation.cpp")

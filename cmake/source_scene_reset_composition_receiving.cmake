@@ -1,0 +1,19 @@
+if(NOT BUILD_TESTING OR NOT TARGET source_scene_reset_composition)
+  return()
+endif()
+include_guard(GLOBAL)
+add_executable(source_scene_reset_composition_tests
+  "${PROJECT_SOURCE_DIR}/tests/source_scene_reset_composition_tests.cpp")
+target_link_libraries(source_scene_reset_composition_tests PRIVATE session_outer_capture)
+add_executable(source_scene_reset_composition_prefix_regression
+  "${PROJECT_SOURCE_DIR}/tests/source_scene_reset_prefix_tests.cpp")
+target_link_libraries(source_scene_reset_composition_prefix_regression PRIVATE race_session race_overlay_textures)
+add_executable(source_scene_reset_composition_clock_regression
+  "${PROJECT_SOURCE_DIR}/tests/source_clock_reset_leaf_receiving.cpp")
+target_link_libraries(source_scene_reset_composition_clock_regression PRIVATE session_outer_capture)
+set(SGN_RESET_COMPOSITION_RETAIL "${PROJECT_SOURCE_DIR}/data/retail" CACHE PATH "NEW retail root")
+add_test(NAME source_scene_reset_composition_cpu COMMAND source_scene_reset_composition_tests "${SGN_RESET_COMPOSITION_RETAIL}")
+add_test(NAME source_scene_reset_composition_prefix_regression COMMAND source_scene_reset_composition_prefix_regression "${SGN_RESET_COMPOSITION_RETAIL}")
+add_test(NAME source_scene_reset_composition_clock_regression COMMAND source_scene_reset_composition_clock_regression "${SGN_RESET_COMPOSITION_RETAIL}")
+set_tests_properties(source_scene_reset_composition_cpu source_scene_reset_composition_prefix_regression
+  source_scene_reset_composition_clock_regression PROPERTIES TIMEOUT 180 RUN_SERIAL TRUE)

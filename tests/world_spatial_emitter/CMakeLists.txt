@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.24)
+project(WorldSpatialEmitter LANGUAGES CXX)
+add_executable(world_spatial_emitter ../world_spatial_emitter.cpp ../../src/retail_world_spatial_producer.cpp ../../src/retail_world_polygon_producer.cpp ../../src/model_resources.cpp ../../src/source_pmd_model.cpp ../../src/source_allocation_bank.cpp ../../src/assets.cpp)
+target_include_directories(world_spatial_emitter PRIVATE ../../include)
+target_compile_features(world_spatial_emitter PRIVATE cxx_std_23)
+target_compile_options(world_spatial_emitter PRIVATE /W4 /WX /fp:strict /permissive- /utf-8)

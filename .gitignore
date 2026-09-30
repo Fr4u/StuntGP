@@ -1,0 +1,13 @@
+/build/
+/out/
+/data/
+/website/download/
+__pycache__/
+*.obj
+*.lib
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.zip
+*.log

@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="{{html_lang}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{meta_title}}</title>
+  <meta name="description" content="{{meta_description}}">
+  <meta name="theme-color" content="#3d0b0b">
+{{{HEAD_LINKS}}}
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="{{og_locale}}">
+  <meta property="og:title" content="{{og_title}}">
+  <meta property="og:description" content="{{og_description}}">
+  <meta property="og:image" content="{{OG_IMAGE}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ROOT}}assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="{{ROOT}}assets/img/favicon-64.png">
+  <link rel="apple-touch-icon" href="{{ROOT}}assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800;1,900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="{{ROOT}}assets/css/style.css">
+  <link rel="preload" as="image" href="{{ROOT}}assets/shots/r20-race-temple.webp" type="image/webp">
+</head>
+<body data-lang="{{html_lang}}">
+  <a class="skip-link" href="#content">{{skip_link}}</a>
+
+  <header class="topbar" data-topbar>
+    <div class="topbar__inner">
+      <a class="brand" href="#start" aria-label="{{brand_aria}}">
+        <img class="brand__logo" src="{{ROOT}}assets/img/stuntgp-logo-small.png" width="176" height="147" alt="">
+        <span class="brand__text">StuntGP <span class="pill pill--red pill--tiny">NEW</span></span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="{{nav_aria}}" data-nav>
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#game">{{nav_game}}</a></li>
+          <li><a class="nav__link" href="#gallery">{{nav_gallery}}</a></li>
+          <li><a class="nav__link" href="#vehicles">{{nav_vehicles}}</a></li>
+          <li><a class="nav__link" href="#download">{{nav_download}}</a></li>
+          <li><a class="nav__link" href="#controls">{{nav_controls}}</a></li>
+          <li><a class="nav__link" href="#status">{{nav_status}}</a></li>
+          <li><a class="nav__link" href="#faq">{{nav_faq}}</a></li>
+        </ul>
+        <a class="btn btn--race btn--small nav__cta" href="#download">
+          <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          {{nav_cta}}
+        </a>
+      </nav>
+      <div class="langsw" data-langsw>
+        <button class="langsw__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langsw-menu" data-langsw-btn>
+          <img class="langsw__flag" src="{{ROOT}}assets/img/flags/{{html_lang}}.webp" width="212" height="128" alt="">
+          <span class="langsw__code">{{lang_code}}</span>
+          <span class="visually-hidden">{{langsw_label}}</span>
+        </button>
+        <ul class="langsw__menu" id="langsw-menu" data-langsw-menu hidden>
+{{{LANG_MENU}}}
+          <li class="langsw__screen"><a href="{{ROOT}}" data-lang-screen>{{langsw_screen}}</a></li>
+        </ul>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">{{nav_menu}}</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- ============ HERO ============ -->
+    <section class="hero tile tile--grey" id="start" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="hero__legal">{{hero_legal}}</p>
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <h1 class="hero__title" id="hero-title">
+              <span class="hero__logo-drop">
+                <span class="hero__logo-hop" data-title-logo>
+                  <span class="hero__logo-slide">
+                    <img class="hero__logo" src="{{ROOT}}assets/img/stuntgp-logo.png" width="401" height="334" alt="Stunt GP">
+                    <span class="pill pill--red pill--big">NEW</span>
+                  </span>
+                </span>
+              </span>
+            </h1>
+            <div class="hero__chips">
+              <span class="chip chip--hud">{{chip_version}}</span>
+              <span class="chip">{{date_current}}</span>
+              <span class="chip">Windows 10/11 x64</span>
+              <span class="chip">DirectX 12</span>
+            </div>
+            <div class="hero__panel">
+              <p class="hero__lead">{{hero_lead}}</p>
+              <p class="hero__sub">{{hero_sub}}</p>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn--race" href="#download">
+                <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                {{hero_cta_download}}
+              </a>
+              <a class="btn btn--menu" href="#gallery"><span class="btn__dot" aria-hidden="true"></span>{{hero_cta_gallery}}</a>
+            </div>
+            <p class="hero__meta">{{hero_meta}}</p>
+          </div>
+
+          <div class="hero__visual">
+            <div class="frame hero__frame">
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="{{slides_role}}" aria-label="{{slides_label}}">
+                <figure class="slideshow__slide is-active" data-caption="{{slide1_caption}}">
+                  <img src="{{ROOT}}assets/shots/r20-race-temple.webp" width="1600" height="900" alt="{{slide1_alt}}" fetchpriority="high">
+                </figure>
+                <figure class="slideshow__slide" data-caption="{{slide2_caption}}">
+                  <img src="{{ROOT}}assets/shots/r20-race-jump.webp" width="1600" height="900" alt="{{slide2_alt}}" loading="lazy">
+                </figure>
+                <figure class="slideshow__slide" data-caption="{{slide3_caption}}">
+                  <img src="{{ROOT}}assets/shots/r20-race-go.webp" width="1600" height="900" alt="{{slide3_alt}}" loading="lazy">
+                </figure>
+                <figure class="slideshow__slide" data-caption="{{slide4_caption}}">
+                  <img src="{{ROOT}}assets/shots/r20-race-ramp.webp" width="1600" height="900" alt="{{slide4_alt}}" loading="lazy">
+                </figure>
+              </div>
+            </div>
+            <div class="helpbar hero__helpbar">
+              <span class="helpbar__icon" aria-hidden="true">i</span>
+              <span class="helpbar__text" data-slide-caption aria-live="polite">{{slide1_caption}}</span>
+            </div>
+            <div class="slideshow__dots" data-slide-dots role="group" aria-label="{{slides_dots}}"></div>
+          </div>
+        </div>
+
+        <p class="hero__prompt"><a href="#game" data-title-prompt>{{title_prompt}}</a></p>
+
+        <ul class="hud-stats" aria-label="{{hud_aria}}">
+          <li class="hud-stat">
+            <span class="hud-stat__label">{{hud1_label}}</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">60</span><span class="hud-stat__unit">{{hud1_unit}}</span></span>
+            <span class="hud-stat__desc">{{hud1_desc}}</span>
+          </li>
+          <li class="hud-stat">
+            <span class="hud-stat__label">{{hud2_label}}</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">3–5</span><span class="hud-stat__unit">ms</span></span>
+            <span class="hud-stat__desc">{{hud2_desc}}</span>
+          </li>
+          <li class="hud-stat">
+            <span class="hud-stat__label">{{hud3_label}}</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">6</span><span class="hud-stat__unit">{{hud3_unit}}</span></span>
+            <span class="hud-stat__desc">{{hud3_desc}}</span>
+          </li>
+          <li class="hud-stat">
+            <span class="hud-stat__label">{{hud4_label}}</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">Hor+</span></span>
+            <span class="hud-stat__desc">{{hud4_desc}}</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ GAME ============ -->
+    <section class="section tile tile--orange" id="game" aria-labelledby="game-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">{{game_bar}}</p>
+          <h2 class="section__title" id="game-title">{{game_title}}</h2>
+        </div>
+        <div class="about">
+          <div class="panel about__text">
+            <p>{{{game_p1}}}</p>
+            <p>{{{game_p2}}}</p>
+            <p>{{{game_p3}}}</p>
+          </div>
+
+          <div class="menu-replica" aria-labelledby="modes-title">
+            <p class="titlebar titlebar--compact" id="modes-title">{{modes_title}}</p>
+            <div class="menu-replica__menu">
+              <div class="mode-icon" aria-hidden="true" data-mode-icon>
+                <img class="mode-icon__img is-active" src="{{ROOT}}assets/img/mode-arcade.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="{{ROOT}}assets/img/mode-exhibition.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="{{ROOT}}assets/img/mode-time-trial.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="{{ROOT}}assets/img/mode-stunt-challenge.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="{{ROOT}}assets/img/mode-championship.webp" width="126" height="126" alt="" decoding="async">
+              </div>
+              <ul class="menu-replica__list" data-modes>
+                <li><button class="menu-btn is-selected" type="button" data-help-main="{{mode1_help}}" data-help-sub="{{mode1_help_sub}}" aria-describedby="modes-help">{{mode1_label}}</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="{{mode2_help}}" data-help-sub="{{mode2_help_sub}}" aria-describedby="modes-help">{{mode2_label}}</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="{{mode3_help}}" data-help-sub="{{mode3_help_sub}}" aria-describedby="modes-help">{{mode3_label}}</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="{{mode4_help}}" data-help-sub="{{mode4_help_sub}}" aria-describedby="modes-help">{{mode4_label}}</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="{{mode5_help}}" data-help-sub="{{mode5_help_sub}}" aria-describedby="modes-help">{{mode5_label}}</button></li>
+              </ul>
+            </div>
+            <div class="helpbar" id="modes-help">
+              <span class="helpbar__icon" aria-hidden="true">i</span>
+              <span class="helpbar__text" aria-live="polite"><span lang="{{modes_help_lang}}" data-help-main-out>{{mode1_help}}</span> <span class="helpbar__pl" data-help-sub-out>{{mode1_help_sub_shown}}</span></span>
+            </div>
+            <p class="note note--on-tile">{{modes_note}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section section--dark" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">{{feat_bar}}</p>
+          <h2 class="section__title" id="features-title">{{feat_title}}</h2>
+        </div>
+        <ul class="features">
+          <li class="feature"><h3 class="feature__title">{{feat1_title}}</h3><p>{{feat1_text}}</p></li>
+          <li class="feature"><h3 class="feature__title">{{feat2_title}}</h3><p>{{feat2_text}}</p></li>
+          <li class="feature"><h3 class="feature__title">{{feat3_title}}</h3><p>{{feat3_text}}</p></li>
+          <li class="feature"><h3 class="feature__title">{{feat4_title}}</h3><p>{{feat4_text}}</p></li>
+          <li class="feature"><h3 class="feature__title">{{feat5_title}}</h3><p>{{feat5_text}}</p></li>
+          <li class="feature"><h3 class="feature__title">{{feat6_title}}</h3><p>{{feat6_text}}</p></li>
+          <li class="feature"><h3 class="feature__title">{{feat7_title}}</h3><p>{{feat7_text}}</p></li>
+          <li class="feature"><h3 class="feature__title">{{feat8_title}}</h3><p>{{feat8_text}}</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section tile tile--grey" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">{{gal_bar}}</p>
+          <h2 class="section__title" id="gallery-title">{{gal_title}}</h2>
+          <p class="section__intro panel panel--slim">{{gal_intro}}</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="{{gal_filter_aria}}" data-filters>
+          <button class="menu-btn menu-btn--pill is-selected" type="button" data-filter="all" aria-pressed="true">{{gal_all}}</button>
+          <button class="menu-btn menu-btn--pill" type="button" data-filter="race" aria-pressed="false">{{gal_race}}</button>
+          <button class="menu-btn menu-btn--pill" type="button" data-filter="menu" aria-pressed="false">{{gal_menu}}</button>
+        </div>
+
+        <ul class="gallery" data-gallery>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-race-temple.webp" data-caption="{{g1_caption}}">
+              <img src="{{ROOT}}assets/shots/r20-race-temple-thumb.webp" width="640" height="360" loading="lazy" alt="{{g1_alt}}">
+            </a>
+            <p class="gallery__cap">{{g1_cap}} <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-race-jump.webp" data-caption="{{g2_caption}}">
+              <img src="{{ROOT}}assets/shots/r20-race-jump-thumb.webp" width="640" height="360" loading="lazy" alt="{{g2_alt}}">
+            </a>
+            <p class="gallery__cap">{{g2_cap}} <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-race-ramp.webp" data-caption="{{g3_caption}}">
+              <img src="{{ROOT}}assets/shots/r20-race-ramp-thumb.webp" width="640" height="360" loading="lazy" alt="{{g3_alt}}">
+            </a>
+            <p class="gallery__cap">{{g3_cap}} <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-race-go.webp" data-caption="{{g4_caption}}">
+              <img src="{{ROOT}}assets/shots/r20-race-go-thumb.webp" width="640" height="360" loading="lazy" alt="{{g4_alt}}">
+            </a>
+            <p class="gallery__cap">{{g4_cap}} <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/arch-race-hangar.webp" data-caption="{{g5_caption}}">
+              <img src="{{ROOT}}assets/shots/arch-race-hangar-thumb.webp" width="640" height="360" loading="lazy" alt="{{g5_alt}}">
+            </a>
+            <p class="gallery__cap">{{g5_cap}} <span class="tag tag--old">{{date_archive}}</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/arch-time-trial.webp" data-caption="{{g6_caption}}">
+              <img src="{{ROOT}}assets/shots/arch-time-trial-thumb.webp" width="640" height="360" loading="lazy" alt="{{g6_alt}}">
+            </a>
+            <p class="gallery__cap">{{g6_cap}} <span class="tag tag--old">{{date_archive}}</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race menu">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/arch-pause.webp" data-caption="{{g7_caption}}">
+              <img src="{{ROOT}}assets/shots/arch-pause-thumb.webp" width="640" height="360" loading="lazy" alt="{{g7_alt}}">
+            </a>
+            <p class="gallery__cap">{{g7_cap}} <span class="tag tag--old">{{date_archive}}</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-title.webp" data-caption="{{g8_caption}}">
+              <img src="{{ROOT}}assets/shots/r20-title-thumb.webp" width="640" height="360" loading="lazy" alt="{{g8_alt}}">
+            </a>
+            <p class="gallery__cap">{{g8_cap}} <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-menu-main.webp" data-caption="{{g9_caption}}">
+              <img src="{{ROOT}}assets/shots/r20-menu-main-thumb.webp" width="640" height="360" loading="lazy" alt="{{g9_alt}}">
+            </a>
+            <p class="gallery__cap">{{g9_cap}} <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-menu-single.webp" data-caption="{{g10_caption}}">
+              <img src="{{ROOT}}assets/shots/r20-menu-single-thumb.webp" width="640" height="360" loading="lazy" alt="{{g10_alt}}">
+            </a>
+            <p class="gallery__cap">{{g10_cap}} <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-language.webp" data-caption="{{g11_caption}}">
+              <img src="{{ROOT}}assets/shots/r20-language-thumb.webp" width="640" height="360" loading="lazy" alt="{{g11_alt}}">
+            </a>
+            <p class="gallery__cap">{{g11_cap}} <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-track-preview.webp" data-caption="{{g12_caption}}">
+              <img src="{{ROOT}}assets/shots/r20-track-preview-thumb.webp" width="640" height="360" loading="lazy" alt="{{g12_alt}}">
+            </a>
+            <p class="gallery__cap">{{g12_cap}} <span class="tag">R20</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ VEHICLES ============ -->
+    <section class="section tile tile--blue" id="vehicles" aria-labelledby="vehicles-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">{{veh_bar}}</p>
+          <h2 class="section__title" id="vehicles-title">{{veh_title}}</h2>
+          <p class="section__intro panel panel--slim">{{veh_intro}}</p>
+        </div>
+
+        <div class="garage" data-garage>
+          <div class="garage__teams" role="group" aria-label="{{veh_team_aria}}">
+            <button class="team-btn is-selected" type="button" data-team="wild" aria-pressed="true">
+              <img src="{{ROOT}}assets/img/team-wild.png" width="199" height="254" alt="">
+              <span>Wild Wheels</span>
+            </button>
+            <button class="team-btn" type="button" data-team="aero" aria-pressed="false">
+              <img src="{{ROOT}}assets/img/team-aero.png" width="254" height="220" alt="">
+              <span>Aero Blasters</span>
+            </button>
+            <button class="team-btn" type="button" data-team="speed" aria-pressed="false">
+              <img src="{{ROOT}}assets/img/team-speed.png" width="254" height="244" alt="">
+              <span>Speed Demons</span>
+            </button>
+          </div>
+
+          <div class="garage__view">
+            <div class="frame garage__frame">
+              <a class="garage__zoom" href="{{ROOT}}assets/shots/r20-vehicle-mean-streak.webp" data-garage-zoom>
+                <img class="garage__shot" src="{{ROOT}}assets/shots/r20-vehicle-mean-streak.webp" width="1600" height="900" alt="{{veh1_alt}}" data-garage-shot>
+                <span class="garage__zoom-hint" aria-hidden="true">{{veh_zoom}}</span>
+              </a>
+            </div>
+            <div class="info-panel garage__info" aria-live="polite">
+              <p class="garage__count" data-garage-count>1 / 5</p>
+              <h3 class="garage__name" data-garage-name>Mean Streak</h3>
+              <p class="garage__team" data-garage-team>Wild Wheels</p>
+              <p class="garage__pl" data-garage-pl>{{veh1_main}}</p>
+              <p class="garage__en" lang="en" data-garage-en{{{VEH1_SUB_HIDDEN}}}>{{veh1_sub_shown}}</p>
+              <div class="garage__nav">
+                <button class="round-btn" type="button" data-garage-prev aria-label="{{veh_prev}}">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="round-btn" type="button" data-garage-next aria-label="{{veh_next}}">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section class="section tile tile--orange" id="download" aria-labelledby="download-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">{{dl_bar}}</p>
+          <h2 class="section__title" id="download-title">{{dl_title}}</h2>
+        </div>
+
+        <div class="download">
+          <div class="download__card frame">
+            <div class="download__inner">
+              <div class="download__version">
+                <span class="hud-label">{{dl_version}}</span>
+                <span class="download__r">R1</span>
+                <span class="download__date">{{dl_date}}</span>
+              </div>
+              <a class="btn btn--race btn--wide" href="https://github.com/Fr4u/StuntGP/releases/download/r1/StuntGP_NEW-R1-program.zip">
+                <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                {{dl_button}}
+              </a>
+              <dl class="facts">
+                <div><dt>{{dl_file}}</dt><dd><code>StuntGP_NEW-R1-program.zip</code></dd></div>
+                <div><dt>{{dl_size}}</dt><dd>{{size_zip}} <span class="muted">({{bytes_zip}})</span></dd></div>
+                <div><dt>{{dl_unpacked}}</dt><dd>{{dl_unpacked_value}}</dd></div>
+                <div class="facts__hash">
+                  <dt>SHA-256 (ZIP)</dt>
+                  <dd><code class="hash">f9ff010cbe5c14cf920af58bcee4f7f1ffbe364548f92c1d7e771c45f1da537a</code>
+                    <button class="copy-btn" type="button" data-copy="f9ff010cbe5c14cf920af58bcee4f7f1ffbe364548f92c1d7e771c45f1da537a">{{copy}}</button></dd>
+                </div>
+                <div class="facts__hash">
+                  <dt>SHA-256 (StuntGP_NEW.exe)</dt>
+                  <dd><code class="hash">17d884df278ff3df0f59e0d4f1bd629ca481f62c6b561247d635c979b8c1ab9c</code>
+                    <button class="copy-btn" type="button" data-copy="17d884df278ff3df0f59e0d4f1bd629ca481f62c6b561247d635c979b8c1ab9c">{{copy}}</button></dd>
+                </div>
+              </dl>
+              <div class="download__verify">
+                <p class="download__sums">{{dl_sums_label}} <a href="https://github.com/Fr4u/StuntGP/releases/download/r1/SHA256SUMS.txt">SHA256SUMS.txt</a>. {{dl_verify_label}}</p>
+                <div class="codeblock codeblock--compact">
+                  <code>Get-FileHash .\StuntGP_NEW-R1-program.zip -Algorithm SHA256</code>
+                  <button class="copy-btn" type="button" data-copy="Get-FileHash .\StuntGP_NEW-R1-program.zip -Algorithm SHA256">{{copy}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="download__side">
+            <div class="panel requirements">
+              <h3 class="panel__title">{{req_title}}</h3>
+              <ul class="checklist">
+                <li>{{req1}}</li>
+                <li>{{req2}}</li>
+                <li>Microsoft Visual C++ Redistributable 2015–2022 (x64) — <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe" rel="noopener">{{req3_link}}</a></li>
+                <li>{{req4}}</li>
+                <li>{{req5}}</li>
+              </ul>
+            </div>
+            <div class="panel package">
+              <h3 class="panel__title">{{pkg_title}}</h3>
+              <ul class="tree">
+                <li><code>StuntGP_NEW.exe</code><span>{{pkg1}}</span></li>
+                <li><code>START.cmd</code><span>{{pkg2}}</span></li>
+                <li><code>START-MENU.cmd</code><span>{{pkg3}}</span></li>
+                <li><code>{{pkg4_file}}</code><span>{{pkg4}}</span></li>
+                <li><code>data\retail\</code><span>{{pkg5}}</span></li>
+                <li><code>save\card00\</code><span>{{pkg6}}</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <ol class="countdown" aria-label="{{steps_aria}}">
+          <li class="countdown__step">
+            <img class="countdown__sign" src="{{ROOT}}assets/img/count-3.png" width="231" height="218" alt="3">
+            <div class="countdown__body">
+              <h3>{{step1_title}}</h3>
+              <p>{{{step1_text}}}</p>
+            </div>
+          </li>
+          <li class="countdown__step">
+            <img class="countdown__sign" src="{{ROOT}}assets/img/count-2.png" width="208" height="229" alt="2">
+            <div class="countdown__body">
+              <h3>{{step2_title}}</h3>
+              <p>{{{step2_text}}}</p>
+            </div>
+          </li>
+          <li class="countdown__step">
+            <img class="countdown__sign" src="{{ROOT}}assets/img/count-1.png" width="189" height="235" alt="1">
+            <div class="countdown__body">
+              <h3>{{step3_title}}</h3>
+              <p>{{{step3_text}}}</p>
+            </div>
+          </li>
+          <li class="countdown__step countdown__step--go">
+            <img class="countdown__sign" src="{{ROOT}}assets/img/count-go.png" width="250" height="251" alt="GO">
+            <div class="countdown__body">
+              <h3>{{step4_title}}</h3>
+              <p>{{{step4_text}}}</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTROLS ============ -->
+    <section class="section section--dark" id="controls" aria-labelledby="controls-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">{{ctl_bar}}</p>
+          <h2 class="section__title" id="controls-title">{{ctl_title}}</h2>
+        </div>
+
+        <div class="controls">
+          <div class="panel controls__keys">
+            <h3 class="panel__title">{{ctl_track}}</h3>
+            <ul class="keys">
+              <li><span class="keycaps"><kbd class="key">↑</kbd></span><span>{{key_throttle}}</span></li>
+              <li><span class="keycaps"><kbd class="key">↓</kbd></span><span>{{key_brake}}</span></li>
+              <li><span class="keycaps"><kbd class="key">←</kbd><kbd class="key">→</kbd></span><span>{{key_steer}}</span></li>
+              <li><span class="keycaps"><kbd class="key key--wide">ESC</kbd></span><span>{{key_pause}}</span></li>
+            </ul>
+            <h3 class="panel__title">{{ctl_menu}}</h3>
+            <ul class="keys">
+              <li><span class="keycaps"><kbd class="key">↑</kbd><kbd class="key">↓</kbd><kbd class="key">←</kbd><kbd class="key">→</kbd></span><span>{{key_select}}</span></li>
+              <li><span class="keycaps"><kbd class="key key--wide">ENTER</kbd></span><span>{{key_confirm}}</span></li>
+              <li><span class="keycaps"><kbd class="key">A</kbd><span class="keys__dash">–</span><kbd class="key">Z</kbd></span><span>{{key_name}}</span></li>
+            </ul>
+            <p class="note">{{{ctl_note}}}</p>
+          </div>
+
+          <div class="panel controls__opts">
+            <h3 class="panel__title">{{opts_title}} <code>StuntGP_NEW.exe</code></h3>
+            <table class="opts">
+              <thead><tr><th scope="col">{{opts_col1}}</th><th scope="col">{{opts_col2}}</th></tr></thead>
+              <tbody>
+                <tr><td><code>--interpolation</code></td><td>{{{opt1}}}</td></tr>
+                <tr><td><code>--aspect-4x3</code></td><td>{{{opt2}}}</td></tr>
+                <tr><td><code>--width 1280 --height 720</code></td><td>{{{opt3}}}</td></tr>
+                <tr><td><code>SGN_GPU_WORLD=1</code></td><td>{{{opt4}}}</td></tr>
+              </tbody>
+            </table>
+            <div class="codeblock">
+              <code>StuntGP_NEW.exe --interpolation --aspect-4x3</code>
+              <button class="copy-btn" type="button" data-copy="StuntGP_NEW.exe --interpolation --aspect-4x3">{{copy}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section class="section tile tile--grey" id="status" aria-labelledby="status-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">{{st_bar}}</p>
+          <h2 class="section__title" id="status-title">{{st_title}}</h2>
+        </div>
+
+        <div class="status">
+          <div class="panel status__col">
+            <h3 class="panel__title"><span class="status-dot status-dot--ok" aria-hidden="true"></span>{{st_ok_title}}</h3>
+            <ul class="checklist">
+              <li>{{st_ok1}}</li>
+              <li>{{st_ok2}}</li>
+              <li>{{st_ok3}}</li>
+              <li>{{st_ok4}}</li>
+              <li>{{st_ok5}}</li>
+            </ul>
+          </div>
+          <div class="panel status__col">
+            <h3 class="panel__title"><span class="status-dot status-dot--wip" aria-hidden="true"></span>{{st_wip_title}}</h3>
+            <ul class="checklist checklist--wip">
+              <li>{{st_wip1}}</li>
+              <li>{{st_wip2}}</li>
+              <li>{{st_wip3}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-wrap">
+          <h3 class="subhead">{{rel_title}}</h3>
+          <ol class="timeline">
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R20</span> {{date_release}}</p>
+              <h4>{{r20_title}}</h4>
+              <p>{{{r20_text}}}</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R19</span> {{date_release}}</p>
+              <h4>{{r19_title}}</h4>
+              <p>{{r19_text}}</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R18</span> {{date_release}}</p>
+              <h4>{{r18_title}}</h4>
+              <p>{{r18_text}}</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R17</span> {{date_release}}</p>
+              <h4>{{r17_title}}</h4>
+              <p>{{r17_text}}</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="method">
+          <h3 class="subhead">{{m_title}}</h3>
+          <ul class="method__grid">
+            <li class="info-panel"><h4>{{m1_title}}</h4><p>{{m1_text}}</p></li>
+            <li class="info-panel"><h4>{{m2_title}}</h4><p>{{m2_text}}</p></li>
+            <li class="info-panel"><h4>{{m3_title}}</h4><p>{{{m3_text}}}</p></li>
+            <li class="info-panel"><h4>{{m4_title}}</h4><p>{{m4_text}}</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--dark" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <p class="titlebar">FAQ</p>
+          <h2 class="section__title" id="faq-title">{{faq_title}}</h2>
+        </div>
+        <div class="faq">
+          <details class="faq__item"><summary>{{faq1_q}}</summary><p>{{{faq1_a}}}</p></details>
+          <details class="faq__item"><summary>{{faq2_q}}</summary><p>{{{faq2_a}}}</p></details>
+          <details class="faq__item"><summary>{{faq3_q}}</summary><p>{{{faq3_a}}}</p></details>
+          <details class="faq__item"><summary>{{faq4_q}}</summary><p>{{{faq4_a}}}</p></details>
+          <details class="faq__item"><summary>{{faq5_q}}</summary><p>{{{faq5_a}}}</p></details>
+          <details class="faq__item"><summary>{{faq6_q}}</summary><p>{{{faq6_a}}}</p></details>
+          <details class="faq__item"><summary>{{faq7_q}}</summary><p>{{{faq7_a}}}</p></details>
+          <details class="faq__item"><summary>{{faq8_q}}</summary><p>{{{faq8_a}}}</p></details>
+          <details class="faq__item"><summary>{{faq9_q}}</summary><p>{{{faq9_a}}}</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINISH ============ -->
+    <section class="finish tile tile--dark-orange" aria-label="{{fin_aria}}">
+      <div class="container finish__inner">
+        <img class="finish__sign" src="{{ROOT}}assets/img/finish.png" width="251" height="211" alt="">
+        <div class="finish__copy">
+          <p class="finish__title">{{fin_title}}</p>
+          <p class="finish__text">{{{fin_text}}}</p>
+        </div>
+        <a class="btn btn--race" href="#download">
+          <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          {{fin_cta}}
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="{{ROOT}}assets/img/stuntgp-logo-small.png" width="88" height="73" alt="">
+        <p><strong>StuntGP NEW</strong><br>{{foot_desc}}</p>
+      </div>
+      <div class="footer__legal">
+        <p>{{foot_legal1}}</p>
+        <p>{{foot_legal2}}</p>
+      </div>
+      <nav class="footer__nav" aria-label="{{foot_nav_aria}}">
+        <a href="#download">{{nav_download}}</a>
+        <a href="#gallery">{{nav_gallery}}</a>
+        <a href="#faq">FAQ</a>
+        <a href="{{ROOT}}" data-lang-screen>{{langsw_screen}}</a>
+        <a href="#start">{{foot_top}}</a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" data-lightbox aria-label="{{lb_aria}}">
+    <div class="lightbox__stage">
+      <img class="lightbox__img" src="" alt="" data-lightbox-img>
+    </div>
+    <div class="helpbar lightbox__bar">
+      <span class="helpbar__icon" aria-hidden="true">i</span>
+      <span class="helpbar__text" data-lightbox-caption></span>
+      <span class="lightbox__count" data-lightbox-count></span>
+    </div>
+    <button class="round-btn lightbox__prev" type="button" data-lightbox-prev aria-label="{{lb_prev}}">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="round-btn lightbox__next" type="button" data-lightbox-next aria-label="{{lb_next}}">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="round-btn lightbox__close" type="button" data-lightbox-close aria-label="{{lb_close}}">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    </button>
+  </dialog>
+
+  <script type="application/json" id="i18n">{{{I18N_JSON}}}</script>
+  <script src="{{ROOT}}assets/js/main.js" defer></script>
+</body>
+</html>

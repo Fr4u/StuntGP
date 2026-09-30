@@ -1,0 +1,10 @@
+#Include after source_application_literals and race_session.
+include_guard(GLOBAL)
+foreach(required IN ITEMS source_application_literals race_session)
+  if(NOT TARGET ${required})
+    message(FATAL_ERROR "source_rolling_demo_formatter requires existing ${required}")
+  endif()
+endforeach()
+add_library(source_rolling_demo_formatter STATIC "${PROJECT_SOURCE_DIR}/src/source_rolling_demo_formatter_session.cpp")
+target_include_directories(source_rolling_demo_formatter PUBLIC "${PROJECT_SOURCE_DIR}/include")
+target_link_libraries(source_rolling_demo_formatter PUBLIC source_application_literals race_session)

@@ -1,0 +1,5 @@
+include_guard(GLOBAL)
+if(NOT TARGET race_session)
+  message(FATAL_ERROR "mode2 route requires race_session and single page navigation")
+endif()
+target_sources(race_session PRIVATE "${PROJECT_SOURCE_DIR}/src/source_mode2_route.cpp")

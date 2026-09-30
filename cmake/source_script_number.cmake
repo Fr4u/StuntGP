@@ -1,0 +1,10 @@
+#Loader's source_script_search.cpp supplies read_source_script_byte in race_session.
+include_guard(GLOBAL)
+foreach(required IN ITEMS source_application_literals race_session)
+  if(NOT TARGET ${required})
+    message(FATAL_ERROR "source_script_number requires existing ${required}")
+  endif()
+endforeach()
+add_library(source_script_number STATIC "${PROJECT_SOURCE_DIR}/src/source_script_number.cpp")
+target_include_directories(source_script_number PUBLIC "${PROJECT_SOURCE_DIR}/include")
+target_link_libraries(source_script_number PUBLIC source_application_literals race_session)

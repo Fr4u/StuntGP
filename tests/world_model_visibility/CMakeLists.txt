@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.24)
+project(WorldModelVisibility LANGUAGES CXX)
+add_executable(world_model_visibility ../world_model_visibility.cpp ../../src/retail_world_model_visibility.cpp ../../src/model_resources.cpp ../../src/source_pmd_model.cpp ../../src/source_allocation_bank.cpp ../../src/assets.cpp ../../src/retail_model_matrices.cpp ../../src/retail_camera_transform.cpp ../../src/retail_camera.cpp)
+target_include_directories(world_model_visibility PRIVATE ../../include)
+target_compile_features(world_model_visibility PRIVATE cxx_std_23)
+target_compile_options(world_model_visibility PRIVATE /W4 /WX /fp:strict /permissive- /utf-8)

@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.24)
+project(ModelRenderImport LANGUAGES CXX)
+add_executable(model_render_import ../model_render_import.cpp ../../src/model_resources.cpp ../../src/source_pmd_model.cpp ../../src/source_allocation_bank.cpp ../../src/assets.cpp)
+target_include_directories(model_render_import PRIVATE ../../include)
+target_compile_features(model_render_import PRIVATE cxx_std_23)
+target_compile_options(model_render_import PRIVATE /W4 /WX /fp:strict /permissive- /utf-8)

@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StuntGP NEW — eine Rekonstruktion von Stunt GP für Windows x64</title>
+  <meta name="description" content="StuntGP NEW ist eine inoffizielle Fan-Rekonstruktion von Stunt GP (Team17) für 64-Bit-Windows: DirectX 12, konstant 60 Spielschritte pro Sekunde und ein Bild in jedem Seitenverhältnis. Lade Version R1 herunter.">
+  <meta name="theme-color" content="#3d0b0b">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="StuntGP NEW — eine Rekonstruktion von Stunt GP">
+  <meta property="og:description" content="Das klassische Rennspiel mit ferngesteuerten Autos von Team17, neu aufgebaut aus dem Code des Originalspiels. Windows x64, DirectX 12. Version R1 zum Herunterladen.">
+  <meta property="og:image" content="../assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/img/favicon-64.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800;1,900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css?v=accd273fbe">
+  <link rel="preload" as="image" href="../assets/shots/r20-race-temple.webp" type="image/webp">
+</head>
+<body data-lang="de">
+  <a class="skip-link" href="#content">Zum Inhalt springen</a>
+
+  <header class="topbar" data-topbar>
+    <div class="topbar__inner">
+      <a class="brand" href="#start" aria-label="StuntGP NEW — Seitenanfang">
+        <img class="brand__logo" src="../assets/img/stuntgp-logo-small.png" width="176" height="147" alt="">
+        <span class="brand__text">StuntGP <span class="pill pill--red pill--tiny">NEW</span></span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Hauptnavigation" data-nav>
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#game">Spiel</a></li>
+          <li><a class="nav__link" href="#gallery">Galerie</a></li>
+          <li><a class="nav__link" href="#vehicles">Fahrzeuge</a></li>
+          <li><a class="nav__link" href="#download">Download</a></li>
+          <li><a class="nav__link" href="#controls">Steuerung</a></li>
+          <li><a class="nav__link" href="#status">Projektstand</a></li>
+          <li><a class="nav__link" href="#faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn--race btn--small nav__cta" href="#download">
+          <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          R1 laden
+        </a>
+      </nav>
+      <div class="langsw" data-langsw>
+        <button class="langsw__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langsw-menu" data-langsw-btn>
+          <img class="langsw__flag" src="../assets/img/flags/de.webp" width="212" height="128" alt="">
+          <span class="langsw__code">DE</span>
+          <span class="visually-hidden">Sprache der Website: Deutsch. Sprache ändern</span>
+        </button>
+        <ul class="langsw__menu" id="langsw-menu" data-langsw-menu hidden>
+          <li><a href="../pl/" hreflang="pl" lang="pl" data-lang="pl"><img src="../assets/img/flags/pl.webp" width="212" height="128" alt=""><span>Polski</span></a></li>
+          <li><a href="../en/" hreflang="en" lang="en" data-lang="en"><img src="../assets/img/flags/en.webp" width="212" height="128" alt=""><span>English</span></a></li>
+          <li><a href="../nl/" hreflang="nl" lang="nl" data-lang="nl"><img src="../assets/img/flags/nl.webp" width="212" height="128" alt=""><span>Nederlands</span></a></li>
+          <li><a href="../de/" hreflang="de" lang="de" data-lang="de" aria-current="page"><img src="../assets/img/flags/de.webp" width="212" height="128" alt=""><span>Deutsch</span></a></li>
+          <li><a href="../sv/" hreflang="sv" lang="sv" data-lang="sv"><img src="../assets/img/flags/sv.webp" width="212" height="128" alt=""><span>Svenska</span></a></li>
+          <li><a href="../it/" hreflang="it" lang="it" data-lang="it"><img src="../assets/img/flags/it.webp" width="212" height="128" alt=""><span>Italiano</span></a></li>
+          <li><a href="../es/" hreflang="es" lang="es" data-lang="es"><img src="../assets/img/flags/es.webp" width="212" height="128" alt=""><span>Español</span></a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr" data-lang="fr"><img src="../assets/img/flags/fr.webp" width="212" height="128" alt=""><span>Français</span></a></li>
+          <li class="langsw__screen"><a href="../" data-lang-screen>Sprachauswahl</a></li>
+        </ul>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Menü</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- ============ HERO ============ -->
+    <section class="hero tile tile--grey" id="start" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="hero__legal">Inoffizielle Fan-Rekonstruktion · Stunt GP © 2001 Team17 Software Ltd.</p>
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <h1 class="hero__title" id="hero-title">
+              <span class="hero__logo-drop">
+                <span class="hero__logo-hop" data-title-logo>
+                  <span class="hero__logo-slide">
+                    <img class="hero__logo" src="../assets/img/stuntgp-logo.png" width="401" height="334" alt="Stunt GP">
+                    <span class="pill pill--red pill--big">NEW</span>
+                  </span>
+                </span>
+              </span>
+            </h1>
+            <div class="hero__chips">
+              <span class="chip chip--hud">Version R1</span>
+              <span class="chip">30.09.2026</span>
+              <span class="chip">Windows 10/11 x64</span>
+              <span class="chip">DirectX 12</span>
+            </div>
+            <div class="hero__panel">
+              <p class="hero__lead">Das klassische Rennspiel mit ferngesteuerten Autos von Team17 — neu aufgebaut aus dem Code des Originalspiels und nativ lauffähig unter Windows x64 mit DirectX 12.</p>
+              <p class="hero__sub">Originale Menüs, Modelle, Texturen und Musik. Ein konstantes Tempo von 60 Spielschritten pro Sekunde und ein Bild, das auf jeden Monitor passt.</p>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn--race" href="#download">
+                <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                Version R1 herunterladen
+              </a>
+              <a class="btn btn--menu" href="#gallery"><span class="btn__dot" aria-hidden="true"></span>Zur Galerie</a>
+            </div>
+            <p class="hero__meta">ZIP · 2,2 MB · nur das Programm, Spieldateien aus deiner eigenen Kopie</p>
+          </div>
+
+          <div class="hero__visual">
+            <div class="frame hero__frame">
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="Diashow" aria-label="Screenshots aus dem Rennen">
+                <figure class="slideshow__slide is-active" data-caption="Arcade-Rennen — japanische Kulisse, 201 auf dem Tacho">
+                  <img src="../assets/shots/r20-race-temple.webp" width="1600" height="900" alt="Screenshot aus dem Rennen: Ein RC-Auto rast an einem japanischen Tempel und einer Burg zwischen blühenden Kirschbäumen vorbei; das HUD zeigt Platz 6 und Tempo 201." fetchpriority="high">
+                </figure>
+                <figure class="slideshow__slide" data-caption="Flug nach dem Absprung von der Rampe — über der Strecke und einem japanischen Garten">
+                  <img src="../assets/shots/r20-race-jump.webp" width="1600" height="900" alt="Screenshot aus dem Rennen: ein Auto in der Luft über der Strecke, im Hintergrund ein japanischer Garten, eine Brücke und ein START-Banner." loading="lazy">
+                </figure>
+                <figure class="slideshow__slide" data-caption="Rennstart — das originale „GO“-Schild und sechs Autos auf der Strecke">
+                  <img src="../assets/shots/r20-race-go.webp" width="1600" height="900" alt="Screenshot vom Rennstart: ein grünes GO-Schild über der Strecke, die Gegner fahren vor dem Auto des Spielers los." loading="lazy">
+                </figure>
+                <figure class="slideshow__slide" data-caption="Auffahrt auf die Rampe — Platz 5, 182 auf dem Tacho">
+                  <img src="../assets/shots/r20-race-ramp.webp" width="1600" height="900" alt="Screenshot aus dem Rennen: Das Auto des Spielers fährt hinter einem grünen Gegner auf eine orangefarbene Rampe; das HUD zeigt Platz 5 und Tempo 182." loading="lazy">
+                </figure>
+              </div>
+            </div>
+            <div class="helpbar hero__helpbar">
+              <span class="helpbar__icon" aria-hidden="true">i</span>
+              <span class="helpbar__text" data-slide-caption aria-live="polite">Arcade-Rennen — japanische Kulisse, 201 auf dem Tacho</span>
+            </div>
+            <div class="slideshow__dots" data-slide-dots role="group" aria-label="Screenshot auswählen"></div>
+          </div>
+        </div>
+
+        <p class="hero__prompt"><a href="#game" data-title-prompt>DRÜCKE EINGABE ZUM FORTSETZEN</a></p>
+
+        <ul class="hud-stats" aria-label="Die wichtigsten Zahlen">
+          <li class="hud-stat">
+            <span class="hud-stat__label">Tempo</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">60</span><span class="hud-stat__unit">Schritte/s</span></span>
+            <span class="hud-stat__desc">wie im Original, unabhängig von der Bildwiederholrate des Monitors</span>
+          </li>
+          <li class="hud-stat">
+            <span class="hud-stat__label">Tick</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">3–5</span><span class="hud-stat__unit">ms</span></span>
+            <span class="hud-stat__desc">ein kompletter Spielschritt samt Zeichnen (Messung des Autors in R19)</span>
+          </li>
+          <li class="hud-stat">
+            <span class="hud-stat__label">Start</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">6</span><span class="hud-stat__unit">Autos</span></span>
+            <span class="hud-stat__desc">der Spieler und fünf KI-gesteuerte Gegner</span>
+          </li>
+          <li class="hud-stat">
+            <span class="hud-stat__label">Bild</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">Hor+</span></span>
+            <span class="hud-stat__desc">jedes Seitenverhältnis, ohne Balken und ohne Verzerrung</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ GAME ============ -->
+    <section class="section tile tile--orange" id="game" aria-labelledby="game-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Das Spiel</p>
+          <h2 class="section__title" id="game-title">Das Originalspiel. Eine neue, native Engine.</h2>
+        </div>
+        <div class="about">
+          <div class="panel about__text">
+            <p>Stunt GP ist ein Rennspiel mit ferngesteuerten Autos auf Strecken voller Rampen, Sprünge und Steilkurven. <strong>StuntGP NEW</strong> baut den gesamten Weg durch das Spiel nach: Sprachauswahl, Titelbild, Menüs, Namenseingabe, Wahl von Modus, Fahrzeug und Strecke, das Rennen, die Ergebnisse und die Rückkehr ins Menü — alles in einer zusammenhängenden Spielwelt.</p>
+            <p>Es ist weder ein Emulator noch eine Hülle um die alte EXE-Datei. Fahrphysik, Streckenkontakt, die KI der Gegner und die Kamera sind neuer nativer Code, nachgebaut anhand der Instruktionen des Originalprogramms. Das Spiel nutzt die Originaldaten: Modelle, Texturen, Schriften, Musik und Effekte.</p>
+            <p>Wo das Verhalten des Originals noch nicht nachgebaut ist, meldet das Spiel einen eindeutigen Fehler mit dem Namen der Funktion — statt ein erfundenes „Spielzeug“-Fahrmodell einzusetzen.</p>
+          </div>
+
+          <div class="menu-replica" aria-labelledby="modes-title">
+            <p class="titlebar titlebar--compact" id="modes-title">Einzelspieler</p>
+            <div class="menu-replica__menu">
+              <div class="mode-icon" aria-hidden="true" data-mode-icon>
+                <img class="mode-icon__img is-active" src="../assets/img/mode-arcade.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="../assets/img/mode-exhibition.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="../assets/img/mode-time-trial.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="../assets/img/mode-stunt-challenge.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="../assets/img/mode-championship.webp" width="126" height="126" alt="" decoding="async">
+              </div>
+              <ul class="menu-replica__list" data-modes>
+                <li><button class="menu-btn is-selected" type="button" data-help-main="Rennen pur!" data-help-sub="" aria-describedby="modes-help">Arcade</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="Stelle deine eigenen Renndetails zusammen." data-help-sub="" aria-describedby="modes-help">Einzelrennen</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="Rennen gegen die Uhr." data-help-sub="" aria-describedby="modes-help">Zeitfahren</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="Freistil-Stunts." data-help-sub="" aria-describedby="modes-help">Stunt-Modus</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="Trete zu einer ganzen Stunt GP-Saison an." data-help-sub="" aria-describedby="modes-help">Meisterschaftsmodus</button></li>
+              </ul>
+            </div>
+            <div class="helpbar" id="modes-help">
+              <span class="helpbar__icon" aria-hidden="true">i</span>
+              <span class="helpbar__text" aria-live="polite"><span lang="de" data-help-main-out>Rennen pur!</span> <span class="helpbar__pl" data-help-sub-out></span></span>
+            </div>
+            <p class="note note--on-tile">Modi aus dem Originalmenü des Spiels. Bezeichnungen und Hilfetexte stammen direkt aus der deutschen Fassung in den Spieldateien.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section section--dark" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Merkmale</p>
+          <h2 class="section__title" id="features-title">Originalgetreu und bequem auf einem modernen PC</h2>
+        </div>
+        <ul class="features">
+          <li class="feature"><h3 class="feature__title">Originale Menüs</h3><p>Sprachauswahl, Titelbild, Hauptmenü, Namenseingabe, Fahrzeugwahl und Streckenvorschau laufen mit den originalen Grafiken, Schriften und Texten des Spiels.</p></li>
+          <li class="feature"><h3 class="feature__title">Ein durchgehendes Spiel</h3><p>Menü → Strecke und Modus → Rennen → Ergebnisse → Menü. Alles geschieht in einer Spielwelt, ohne separaten Vorschaumodus.</p></li>
+          <li class="feature"><h3 class="feature__title">60 Schritte pro Sekunde</h3><p>Die Simulation läuft im Tempo des Originals: 60 Schritte pro Sekunde, unabhängig von der Bildwiederholrate des Monitors. Ein Spielschritt samt Zeichnen dauert etwa 3–5 ms.</p></li>
+          <li class="feature"><h3 class="feature__title">Jeder Monitor</h3><p>Das Bild füllt das Fenster in nativer Auflösung, ohne Balken und ohne Verzerrung. Rennen nutzen Hor+ — mehr Sicht zur Seite bei originalem vertikalem Sichtfeld. Das HUD bleibt an den Bildschirmrändern.</p></li>
+          <li class="feature"><h3 class="feature__title">120, 144, 240 Hz</h3><p>Auf schnellen Monitoren gehen keine Tastendrücke verloren, und Musik, Lichter und Ladebildschirme behalten das Originaltempo. Optionale Interpolation glättet die Bewegung.</p></li>
+          <li class="feature"><h3 class="feature__title">Originale Daten</h3><p>Fahrzeug- und Streckenmodelle, Texturen, Schriften, Musik und Soundeffekte stammen aus den originalen Spieldateien.</p></li>
+          <li class="feature"><h3 class="feature__title">Nachgebaut, nicht erfunden</h3><p>Jedes nachgebaute Verhalten muss auf konkrete Instruktionen in der festgeschriebenen originalen EXE-Datei verweisen. Pseudocode aus dem Decompiler allein gilt nicht als Beweis.</p></li>
+          <li class="feature"><h3 class="feature__title">Fehler des Originals behoben</h3><p>11 dokumentierte Korrekturen, getrennt vom wiederhergestellten Verhalten beschrieben — etwa ein halbsekündiger Stillstand ungefähr alle 7 Minuten durch einen überlaufenden 32-Bit-Taktzähler.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section tile tile--grey" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Galerie</p>
+          <h2 class="section__title" id="gallery-title">Echte Screenshots aus dem Spiel</h2>
+          <p class="section__intro panel panel--slim">Alle Bilder sind Screenshots der laufenden Rekonstruktion — ohne Retusche, ohne Mock-ups. Aufnahmen mit der Markierung R20 entstanden am 28.09.2026 in der Download-Version; die drei mit einem Datum stammen aus einer früheren Version vom 07.09.2026.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Galeriefilter" data-filters>
+          <button class="menu-btn menu-btn--pill is-selected" type="button" data-filter="all" aria-pressed="true">Alle</button>
+          <button class="menu-btn menu-btn--pill" type="button" data-filter="race" aria-pressed="false">Rennen</button>
+          <button class="menu-btn menu-btn--pill" type="button" data-filter="menu" aria-pressed="false">Menüs</button>
+        </div>
+
+        <ul class="gallery" data-gallery>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/r20-race-temple.webp" data-caption="Arcade-Rennen — japanische Kulisse, 201 auf dem Tacho (R20)">
+              <img src="../assets/shots/r20-race-temple-thumb.webp" width="640" height="360" loading="lazy" alt="Rennen an einem japanischen Tempel und einer Burg vorbei, Tempo 201.">
+            </a>
+            <p class="gallery__cap">Arcade-Rennen — japanische Kulisse <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/r20-race-jump.webp" data-caption="Flug nach dem Absprung von der Rampe (R20)">
+              <img src="../assets/shots/r20-race-jump-thumb.webp" width="640" height="360" loading="lazy" alt="Ein Auto in der Luft über der Strecke und einem japanischen Garten.">
+            </a>
+            <p class="gallery__cap">Flug nach der Rampe <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/r20-race-ramp.webp" data-caption="Auffahrt auf die Rampe — Platz 5, 182 auf dem Tacho (R20)">
+              <img src="../assets/shots/r20-race-ramp-thumb.webp" width="640" height="360" loading="lazy" alt="Das Auto des Spielers fährt hinter einem grünen Gegner auf eine orangefarbene Rampe.">
+            </a>
+            <p class="gallery__cap">Auffahrt auf die Rampe <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/r20-race-go.webp" data-caption="Rennstart mit dem originalen „GO“-Schild (R20)">
+              <img src="../assets/shots/r20-race-go-thumb.webp" width="640" height="360" loading="lazy" alt="Rennstart: ein grünes GO-Schild über der Strecke.">
+            </a>
+            <p class="gallery__cap">Rennstart — „GO“ <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/arch-race-hangar.webp" data-caption="Rennen auf TRACK1 in einer Halle — frühere Version vom 07.09.2026">
+              <img src="../assets/shots/arch-race-hangar-thumb.webp" width="640" height="360" loading="lazy" alt="Rennen in einer Halle: ein Auto neben einer rot-weiß gestreiften Bande, Platz 6, Tempo 180.">
+            </a>
+            <p class="gallery__cap">Rennen auf TRACK1 in einer Halle <span class="tag tag--old">07.09.2026</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/arch-time-trial.webp" data-caption="Zeitfahren auf TRACK1 — frühere Version vom 07.09.2026">
+              <img src="../assets/shots/arch-time-trial-thumb.webp" width="640" height="360" loading="lazy" alt="Zeitfahren: ein Auto mit flammenden Auspuffrohren auf einer Strecke in einer Halle, Tempo 224.">
+            </a>
+            <p class="gallery__cap">Zeitfahren <span class="tag tag--old">07.09.2026</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race menu">
+            <a class="gallery__link" href="../assets/shots/arch-pause.webp" data-caption="Pausenmenü während eines Rennens — frühere Version vom 07.09.2026">
+              <img src="../assets/shots/arch-pause-thumb.webp" width="640" height="360" loading="lazy" alt="Pausenmenü über einem Rennen: RESUME, RESTART, EXIT, Lautstärke und Kamera.">
+            </a>
+            <p class="gallery__cap">Pausenmenü <span class="tag tag--old">07.09.2026</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-title.webp" data-caption="Titelbild (R20)">
+              <img src="../assets/shots/r20-title-thumb.webp" width="640" height="360" loading="lazy" alt="Titelbild mit dem Stunt-GP-Logo und PRESS ENTER TO CONTINUE.">
+            </a>
+            <p class="gallery__cap">Titelbild <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-menu-main.webp" data-caption="Hauptmenü (R20)">
+              <img src="../assets/shots/r20-menu-main-thumb.webp" width="640" height="360" loading="lazy" alt="Hauptmenü auf orangefarbenem Hintergrund: SINGLE PLAYER, MULTI PLAYER, CATALOGUE, RECORDS, OPTIONS, QUIT.">
+            </a>
+            <p class="gallery__cap">Hauptmenü <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-menu-single.webp" data-caption="Einzelspieler-Modi (R20)">
+              <img src="../assets/shots/r20-menu-single-thumb.webp" width="640" height="360" loading="lazy" alt="Menü SINGLE PLAYER: ARCADE, EXHIBITION, TIME TRIAL, STUNT CHALLENGE, CHAMPIONSHIP.">
+            </a>
+            <p class="gallery__cap">Einzelspieler-Modi <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-language.webp" data-caption="Sprachauswahl beim ersten Start (R20)">
+              <img src="../assets/shots/r20-language-thumb.webp" width="640" height="360" loading="lazy" alt="Sprachauswahl mit Flaggen: English, Nederlands, Deutsch, Svenska, Italiano, Espanol, Francais.">
+            </a>
+            <p class="gallery__cap">Sprachauswahl <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-track-preview.webp" data-caption="Streckenvorschau vor dem Rennen (R20)">
+              <img src="../assets/shots/r20-track-preview-thumb.webp" width="640" height="360" loading="lazy" alt="Bildschirm TRACK PREVIEW mit einem Streckenmodell und der Beschreibung der Strecke BANK JOB.">
+            </a>
+            <p class="gallery__cap">Streckenvorschau <span class="tag">R20</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ VEHICLES ============ -->
+    <section class="section tile tile--blue" id="vehicles" aria-labelledby="vehicles-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Fahrzeuge</p>
+          <h2 class="section__title" id="vehicles-title">Teams und ihre Maschinen</h2>
+          <p class="section__intro panel panel--slim">So sieht die Fahrzeugwahl in Version R20 aus — unten fünf Beispielautos aus drei Teams. Jedes hat eigene STUNT-, GRIP- und POWER-Werte und eine Beschreibung aus dem Originalspiel.</p>
+        </div>
+
+        <div class="garage" data-garage>
+          <div class="garage__teams" role="group" aria-label="Team">
+            <button class="team-btn is-selected" type="button" data-team="wild" aria-pressed="true">
+              <img src="../assets/img/team-wild.png" width="199" height="254" alt="">
+              <span>Wild Wheels</span>
+            </button>
+            <button class="team-btn" type="button" data-team="aero" aria-pressed="false">
+              <img src="../assets/img/team-aero.png" width="254" height="220" alt="">
+              <span>Aero Blasters</span>
+            </button>
+            <button class="team-btn" type="button" data-team="speed" aria-pressed="false">
+              <img src="../assets/img/team-speed.png" width="254" height="244" alt="">
+              <span>Speed Demons</span>
+            </button>
+          </div>
+
+          <div class="garage__view">
+            <div class="frame garage__frame">
+              <a class="garage__zoom" href="../assets/shots/r20-vehicle-mean-streak.webp" data-garage-zoom>
+                <img class="garage__shot" src="../assets/shots/r20-vehicle-mean-streak.webp" width="1600" height="900" alt="Bildschirm SELECT VEHICLE: Mean Streak vom Team Wild Wheels." data-garage-shot>
+                <span class="garage__zoom-hint" aria-hidden="true">Vergrößern</span>
+              </a>
+            </div>
+            <div class="info-panel garage__info" aria-live="polite">
+              <p class="garage__count" data-garage-count>1 / 5</p>
+              <h3 class="garage__name" data-garage-name>Mean Streak</h3>
+              <p class="garage__team" data-garage-team>Wild Wheels</p>
+              <p class="garage__pl" data-garage-pl>„Schnell, leicht, agil. Dieser Rennwagen ist für diejenigen, die ihr Fahrzeug modifizieren möchten.“</p>
+              <p class="garage__en" lang="en" data-garage-en hidden></p>
+              <div class="garage__nav">
+                <button class="round-btn" type="button" data-garage-prev aria-label="Vorheriges Fahrzeug">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="round-btn" type="button" data-garage-next aria-label="Nächstes Fahrzeug">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section class="section tile tile--orange" id="download" aria-labelledby="download-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Download</p>
+          <h2 class="section__title" id="download-title">Bereit für den Start?</h2>
+        </div>
+
+        <div class="download">
+          <div class="download__card frame">
+            <div class="download__inner">
+              <div class="download__version">
+                <span class="hud-label">Version</span>
+                <span class="download__r">R1</span>
+                <span class="download__date">Veröffentlicht am 30.09.2026</span>
+              </div>
+              <a class="btn btn--race btn--wide" href="https://github.com/Fr4u/StuntGP/releases/download/r1/StuntGP_NEW-R1-program.zip">
+                <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                ZIP herunterladen (2,2 MB)
+              </a>
+              <dl class="facts">
+                <div><dt>Datei</dt><dd><code>StuntGP_NEW-R1-program.zip</code></dd></div>
+                <div><dt>Größe</dt><dd>2,2 MB <span class="muted">(2.314.032 Byte)</span></dd></div>
+                <div><dt>Entpackt</dt><dd>4,9 MB, 6 Dateien</dd></div>
+                <div class="facts__hash">
+                  <dt>SHA-256 (ZIP)</dt>
+                  <dd><code class="hash">f9ff010cbe5c14cf920af58bcee4f7f1ffbe364548f92c1d7e771c45f1da537a</code>
+                    <button class="copy-btn" type="button" data-copy="f9ff010cbe5c14cf920af58bcee4f7f1ffbe364548f92c1d7e771c45f1da537a">Kopieren</button></dd>
+                </div>
+                <div class="facts__hash">
+                  <dt>SHA-256 (StuntGP_NEW.exe)</dt>
+                  <dd><code class="hash">17d884df278ff3df0f59e0d4f1bd629ca481f62c6b561247d635c979b8c1ab9c</code>
+                    <button class="copy-btn" type="button" data-copy="17d884df278ff3df0f59e0d4f1bd629ca481f62c6b561247d635c979b8c1ab9c">Kopieren</button></dd>
+                </div>
+              </dl>
+              <div class="download__verify">
+                <p class="download__sums">Prüfsummen: <a href="https://github.com/Fr4u/StuntGP/releases/download/r1/SHA256SUMS.txt">SHA256SUMS.txt</a>. Prüfen in PowerShell:</p>
+                <div class="codeblock codeblock--compact">
+                  <code>Get-FileHash .\StuntGP_NEW-R1-program.zip -Algorithm SHA256</code>
+                  <button class="copy-btn" type="button" data-copy="Get-FileHash .\StuntGP_NEW-R1-program.zip -Algorithm SHA256">Kopieren</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="download__side">
+            <div class="panel requirements">
+              <h3 class="panel__title">Systemanforderungen</h3>
+              <ul class="checklist">
+                <li>Windows 10 oder 11, 64 Bit</li>
+                <li>Grafikkarte mit DirectX 12 (Feature-Level 11_0 oder höher)</li>
+                <li>Microsoft Visual C++ Redistributable 2015–2022 (x64) — <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe" rel="noopener">bei Microsoft herunterladen</a></li>
+                <li>Eine eigene Kopie des originalen Stunt GP (CD oder Installation) — die Dateien sind nicht enthalten</li>
+                <li>Tastatur</li>
+              </ul>
+            </div>
+            <div class="panel package">
+              <h3 class="panel__title">Paketinhalt</h3>
+              <ul class="tree">
+                <li><code>StuntGP_NEW.exe</code><span>das Spiel (x64, DirectX 12)</span></li>
+                <li><code>START.cmd</code><span>startet das Spiel mit Bildinterpolation</span></li>
+                <li><code>START-MENU.cmd</code><span>startet das Spiel ohne Interpolation</span></li>
+                <li><code>README.txt</code><span>Anleitung (PL/EN)</span></li>
+                <li><code>data\retail\</code><span>Startkonfiguration; hierher die originalen Spieldateien kopieren</span></li>
+                <li><code>save\card00\</code><span>Ordner für gespeicherte Einstellungen</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <ol class="countdown" aria-label="So geht&#x27;s los — vier Schritte">
+          <li class="countdown__step">
+            <img class="countdown__sign" src="../assets/img/count-3.png" width="231" height="218" alt="3">
+            <div class="countdown__body">
+              <h3>Herunterladen</h3>
+              <p>Lade das Archiv <code>StuntGP_NEW-R1-program.zip</code> herunter und vergleiche zur Sicherheit die SHA-256-Prüfsumme.</p>
+            </div>
+          </li>
+          <li class="countdown__step">
+            <img class="countdown__sign" src="../assets/img/count-2.png" width="208" height="229" alt="2">
+            <div class="countdown__body">
+              <h3>Entpacken</h3>
+              <p>Entpacke das Archiv an einen Ort mit Schreibrechten, zum Beispiel auf den Desktop. Kopiere aus deiner eigenen Stunt-GP-Kopie die Ordner <code>wads, graphics24, meshdata, sound</code> nach <code>data\retail</code>.</p>
+            </div>
+          </li>
+          <li class="countdown__step">
+            <img class="countdown__sign" src="../assets/img/count-1.png" width="189" height="235" alt="1">
+            <div class="countdown__body">
+              <h3>Starten</h3>
+              <p>Doppelklicke auf <code>START.cmd</code>. Erscheint eine SmartScreen-Warnung, wähle „Weitere Informationen“ → „Trotzdem ausführen“.</p>
+            </div>
+          </li>
+          <li class="countdown__step countdown__step--go">
+            <img class="countdown__sign" src="../assets/img/count-go.png" width="250" height="251" alt="GO">
+            <div class="countdown__body">
+              <h3>Spielen!</h3>
+              <p>Wähle beim ersten Start die Menüsprache. Drücke im Titelbild <kbd>ENTER</kbd>, wähle SINGLE PLAYER, einen Modus und ein Fahrzeug — und ab auf die Strecke.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTROLS ============ -->
+    <section class="section section--dark" id="controls" aria-labelledby="controls-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Steuerung</p>
+          <h2 class="section__title" id="controls-title">Tasten und Startoptionen</h2>
+        </div>
+
+        <div class="controls">
+          <div class="panel controls__keys">
+            <h3 class="panel__title">Auf der Strecke</h3>
+            <ul class="keys">
+              <li><span class="keycaps"><kbd class="key">↑</kbd></span><span>Gas geben</span></li>
+              <li><span class="keycaps"><kbd class="key">↓</kbd></span><span>Bremsen</span></li>
+              <li><span class="keycaps"><kbd class="key">←</kbd><kbd class="key">→</kbd></span><span>Lenken</span></li>
+              <li><span class="keycaps"><kbd class="key key--wide">ESC</kbd></span><span>Pause im Rennen</span></li>
+            </ul>
+            <h3 class="panel__title">In den Menüs</h3>
+            <ul class="keys">
+              <li><span class="keycaps"><kbd class="key">↑</kbd><kbd class="key">↓</kbd><kbd class="key">←</kbd><kbd class="key">→</kbd></span><span>Option wählen</span></li>
+              <li><span class="keycaps"><kbd class="key key--wide">ENTER</kbd></span><span>Bestätigen</span></li>
+              <li><span class="keycaps"><kbd class="key">A</kbd><span class="keys__dash">–</span><kbd class="key">Z</kbd></span><span>Spielernamen eingeben</span></li>
+            </ul>
+            <p class="note">Die Standardbelegung der Tastatur stammt aus den Originaldaten des Spiels. <kbd>LEERTASTE</kbd>, <kbd>UMSCHALT</kbd> und <kbd>STRG</kbd> übernehmen die zusätzlichen Aktionen der Originalbelegung.</p>
+          </div>
+
+          <div class="panel controls__opts">
+            <h3 class="panel__title">Startoptionen <code>StuntGP_NEW.exe</code></h3>
+            <table class="opts">
+              <thead><tr><th scope="col">Option</th><th scope="col">Wirkung</th></tr></thead>
+              <tbody>
+                <tr><td><code>--interpolation</code></td><td>Interpoliert das Bild zwischen den Spielschritten — flüssigere Bewegung auf Monitoren über 60&nbsp;Hz. So startet <code>START.cmd</code> das Spiel.</td></tr>
+                <tr><td><code>--aspect-4x3</code></td><td>Originales 4:3-Bild mit Balken. Die Umgebungsvariable <code>SGN_ASPECT=4x3</code> bewirkt dasselbe.</td></tr>
+                <tr><td><code>--width 1280 --height 720</code></td><td>Fenstergröße (standardmäßig 1440×900).</td></tr>
+                <tr><td><code>SGN_GPU_WORLD=1</code></td><td>Umgebungsvariable: Streckengeometrie wird auf der GPU berechnet. Optional, standardmäßig aus.</td></tr>
+              </tbody>
+            </table>
+            <div class="codeblock">
+              <code>StuntGP_NEW.exe --interpolation --aspect-4x3</code>
+              <button class="copy-btn" type="button" data-copy="StuntGP_NEW.exe --interpolation --aspect-4x3">Kopieren</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section class="section tile tile--grey" id="status" aria-labelledby="status-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Projektstand</p>
+          <h2 class="section__title" id="status-title">Ehrlich darüber, was fertig ist</h2>
+        </div>
+
+        <div class="status">
+          <div class="panel status__col">
+            <h3 class="panel__title"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Funktioniert in R1</h3>
+            <ul class="checklist">
+              <li>Sprachauswahl, Titelbild, Hauptmenü und Modusmenü</li>
+              <li>Namenseingabe, Fahrzeugwahl und Streckenvorschau</li>
+              <li>Rennen gegen fünf KI-Gegner: Start, Runden, Ziel und Ergebnisse</li>
+              <li>Pause, HUD, Kamera, Musik und Effekte: Partikel, Spuren, Schatten</li>
+              <li>Konstant 60 Schritte pro Sekunde und ein Bild in jedem Seitenverhältnis</li>
+            </ul>
+          </div>
+          <div class="panel status__col">
+            <h3 class="panel__title"><span class="status-dot status-dot--wip" aria-hidden="true"></span>In Arbeit</h3>
+            <ul class="checklist checklist--wip">
+              <li>Seltene Spielpfade, die noch nicht nachgebaut sind — sie enden mit einem eindeutigen Fehler mit dem Namen der Funktion</li>
+              <li>Volle Übereinstimmung von Bild und Spielzustand mit dem Original ist noch nicht nachgewiesen</li>
+              <li>Der R1-Build wurde mit visuellen Tests und Messungen des Autors geprüft; automatisierte Tests und Vergleiche mit dem Original liefen dafür nicht</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-wrap">
+          <h3 class="subhead">Neueste Versionen</h3>
+          <ol class="timeline">
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R20</span> 28.09.2026</p>
+              <h4>Jedes Seitenverhältnis</h4>
+              <p>Bild über das ganze Fenster in nativer Auflösung, Hor+ im Rennen, HUD an den Rändern verankert, Pause und Ergebnisse zentriert, 4:3-Menüs mit Hintergrund bis zu den Fensterrändern. Originales 4:3 mit der Option <code>--aspect-4x3</code>.</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R19</span> 28.09.2026</p>
+              <h4>Leistung</h4>
+              <p>Konstant 60 Bilder pro Sekunde statt etwa 13–37 FPS; ein Spielschritt samt Zeichnen dauert etwa 3–5 ms. Das Spiel startet im Hauptmenü. Optional Bildinterpolation und Streckengeometrie auf der GPU.</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R18</span> 28.09.2026</p>
+              <h4>Ein Spiel</h4>
+              <p>Menü → Strecke und Modus → Rennen → Ergebnisse → Menü in einer Spielwelt. Das Schleifentempo hängt an der Spieluhr, daher ändern 120/144/240 Hz das Tempo nicht. Tastenbelegung aus den Spieldaten.</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R17</span> 28.09.2026</p>
+              <h4>Fahrzeuge komplett</h4>
+              <p>Aktualisierungsroutinen der Fahrzeuge angebunden: Dynamik, Stunts, Route, Modelleffekte, Partikel, Spuren, Schatten, Wiederholungen, Fahrzeugsound sowie Streckengrenzen und die Rückkehr auf die Strecke.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="method">
+          <h3 class="subhead">Wie es entsteht</h3>
+          <ul class="method__grid">
+            <li class="info-panel"><h4>Aus Instruktionen, nicht aus Vermutungen</h4><p>Nachgebautes Verhalten muss auf die festgeschriebene EXE-Datei (SHA-256), die dekompilierte Funktion und die genauen Instruktionsbereiche verweisen. Die Dekompilierung ist nicht der originale Quellcode.</p></li>
+            <li class="info-panel"><h4>Vergleiche mit dem Original</h4><p>Orakel führen die unveränderten Instruktionen des Originals im Emulator Unicorn aus und vergleichen die Ergebnisse mit dem neuen Code — etwa die Routinen zum Anhalten und Fortsetzen des Spiels: 13.280 verglichene Aufrufe ohne Abweichung.</p></li>
+            <li class="info-panel"><h4>Strenge Builds</h4><p>C++23, kompiliert mit <code>/W4 /WX</code> — Warnungen gelten als Fehler — und <code>/fp:strict</code> für strikte Gleitkommaarithmetik.</p></li>
+            <li class="info-panel"><h4>Neue Plattform, klar gekennzeichnet</h4><p>Fenster, DirectX-12-Renderer, Bildskalierung und Darstellungstakt sind neuer Code — als neu gekennzeichnet, nicht als wiederhergestelltes Spielverhalten.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--dark" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <p class="titlebar">FAQ</p>
+          <h2 class="section__title" id="faq-title">Häufige Fragen</h2>
+        </div>
+        <div class="faq">
+          <details class="faq__item"><summary>Ist das das offizielle Spiel?</summary><p>Nein. StuntGP NEW ist ein inoffizielles Fanprojekt und steht in keiner Verbindung zu Team17 Software Ltd. Stunt GP und Team17 sind eingetragene Warenzeichen von Team17 Software Limited.</p></details>
+          <details class="faq__item"><summary>Ist es ein Emulator oder eine Hülle um die originale EXE?</summary><p>Nein. Es ist ein natives x64-Programm, neu geschrieben in C++23, mit einem DirectX-12-Renderer. Die originale ausführbare Datei wird nicht gestartet — sie dient als Vorlage, nach der die Module des Spiels nachgebaut werden.</p></details>
+          <details class="faq__item"><summary>Ist das Spiel fertig?</summary><p>Noch nicht. R1 ist eine Version in Arbeit: Der Hauptweg durch das Spiel funktioniert, aber seltene Fälle, die noch nicht nachgebaut sind, enden mit einem eindeutigen Fehler mit dem Namen der Funktion — statt das Verhalten des Originals zu raten.</p></details>
+          <details class="faq__item"><summary>Windows zeigt beim Start eine Warnung</summary><p><code>StuntGP_NEW.exe</code> ist nicht digital signiert, daher kann der SmartScreen-Filter sie blockieren. Wähle „Weitere Informationen“ → „Trotzdem ausführen“. Vergleiche zur Sicherheit die SHA-256-Prüfsumme der heruntergeladenen Datei mit dem Wert im Abschnitt <a href="#download">Download</a>.</p></details>
+          <details class="faq__item"><summary>MSVCP140.dll oder VCRUNTIME140_1.dll fehlt</summary><p>Installiere Microsoft Visual C++ Redistributable 2015–2022 (x64) von der Microsoft-Website: <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe" rel="noopener">aka.ms/vs/17/release/vc_redist.x64.exe</a>.</p></details>
+          <details class="faq__item"><summary>Läuft es auf einem Monitor mit 144 Hz oder 240 Hz?</summary><p>Ja. Das Spiel rechnet 60 Schritte pro Sekunde, unabhängig von der Bildwiederholrate des Monitors, und <code>START.cmd</code> schaltet die Bildinterpolation ein, die die Bewegung glättet.</p></details>
+          <details class="faq__item"><summary>Ich habe einen Ultrawide-Monitor</summary><p>Das Bild füllt das ganze Fenster ohne Balken, und Rennen zeigen mehr Sicht zur Seite (Hor+). Wenn du lieber den originalen 4:3-Ausschnitt möchtest, starte das Spiel mit der Option <code>--aspect-4x3</code>.</p></details>
+          <details class="faq__item"><summary>Gibt es das Spielmenü auf Deutsch?</summary><p>Ja. Beim ersten Start kannst du Deutsch wählen — eine der sieben Sprachen in den Originaldaten des Spiels: Englisch, Niederländisch, Deutsch, Schwedisch, Italienisch, Spanisch und Französisch.</p></details>
+          <details class="faq__item"><summary>Wo speichert das Spiel die Einstellungen?</summary><p>Im Ordner <code>save\card00</code> neben <code>StuntGP_NEW.exe</code>. Entpacke das Spiel daher an einen Ort mit Schreibrechten — zum Beispiel auf den Desktop, nicht nach <code>Program Files</code>.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINISH ============ -->
+    <section class="finish tile tile--dark-orange" aria-label="Spiel herunterladen">
+      <div class="container finish__inner">
+        <img class="finish__sign" src="../assets/img/finish.png" width="251" height="211" alt="">
+        <div class="finish__copy">
+          <p class="finish__title">Version R1 wartet an der Ziellinie</p>
+          <p class="finish__text">Herunterladen, entpacken, <code>START.cmd</code> starten — und auf den originalen Strecken von Stunt GP fahren.</p>
+        </div>
+        <a class="btn btn--race" href="#download">
+          <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Zum Download
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="../assets/img/stuntgp-logo-small.png" width="88" height="73" alt="">
+        <p><strong>StuntGP NEW</strong><br>Eine inoffizielle Fan-Rekonstruktion von Stunt GP für Windows x64.</p>
+      </div>
+      <div class="footer__legal">
+        <p>Stunt GP © 2001 Team17 Software Ltd. Stunt GP und Team17 sind eingetragene Warenzeichen von Team17 Software Limited. Dieses Projekt steht in keiner Verbindung zu Team17 Software Ltd.</p>
+        <p>Die Screenshots stammen aus der Rekonstruktion: Version R20 vom 28.09.2026 und — wo markiert — die Version vom 07.09.2026. Logo, Team-Embleme, Modus-Symbole, Hintergrundkacheln, Sprachflaggen und Countdown-Schilder sind Originalgrafiken aus den Spieldateien; die polnische Flagge, die das Spiel nicht hat, wurde im selben Stil erstellt.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Fußzeile">
+        <a href="#download">Download</a>
+        <a href="#gallery">Galerie</a>
+        <a href="#faq">FAQ</a>
+        <a href="../" data-lang-screen>Sprachauswahl</a>
+        <a href="#start">Nach oben ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" data-lightbox aria-label="Screenshot-Ansicht">
+    <div class="lightbox__stage">
+      <img class="lightbox__img" src="" alt="" data-lightbox-img>
+    </div>
+    <div class="helpbar lightbox__bar">
+      <span class="helpbar__icon" aria-hidden="true">i</span>
+      <span class="helpbar__text" data-lightbox-caption></span>
+      <span class="lightbox__count" data-lightbox-count></span>
+    </div>
+    <button class="round-btn lightbox__prev" type="button" data-lightbox-prev aria-label="Vorheriger Screenshot">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="round-btn lightbox__next" type="button" data-lightbox-next aria-label="Nächster Screenshot">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="round-btn lightbox__close" type="button" data-lightbox-close aria-label="Ansicht schließen">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    </button>
+  </dialog>
+
+  <script type="application/json" id="i18n">{"lang": "de", "slideDot": "Screenshot {n} von {total}: {caption}", "copyOk": "Kopiert", "copyFail": "Markiert — Strg+C", "vehAlt": "Bildschirm SELECT VEHICLE: {name} vom Team {team}.", "vehCaption": "Fahrzeugwahl — {name}, Team {team} (R20)", "vehicles": [{"team": "wild", "teamName": "Wild Wheels", "name": "Mean Streak", "img": "r20-vehicle-mean-streak", "main": "„Schnell, leicht, agil. Dieser Rennwagen ist für diejenigen, die ihr Fahrzeug modifizieren möchten.“", "sub": ""}, {"team": "wild", "teamName": "Wild Wheels", "name": "Alley Kat", "img": "r20-vehicle-alley-kat", "main": "„Diese Katze ist geschmeidig und kraftvoll. Sie ist bereit zum Fauchen.“", "sub": ""}, {"team": "aero", "teamName": "Aero Blasters", "name": "Stunt Monkey", "img": "r20-vehicle-stunt-monkey", "main": "„Der Höllenritt deines Lebens!“", "sub": ""}, {"team": "speed", "teamName": "Speed Demons", "name": "The Brute", "img": "r20-vehicle-the-brute", "main": "„Weck den Tiger in dir und lass dir auf der Straße nichts gefallen!“", "sub": ""}, {"team": "speed", "teamName": "Speed Demons", "name": "Sand Shark", "img": "r20-vehicle-sand-shark", "main": "„Dieser Dünenjäger ist auf jeder Stuntstrecke zu Hause.“", "sub": ""}]}</script>
+  <script src="../assets/js/main.js?v=e5737b0e2b" defer></script>
+</body>
+</html>

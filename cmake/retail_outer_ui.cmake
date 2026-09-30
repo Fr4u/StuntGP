@@ -1,0 +1,12 @@
+# Recovered leaves used by the outer scene. Session composition is separate.
+include_guard(GLOBAL)
+add_library(retail_pause_age_fade STATIC "${PROJECT_SOURCE_DIR}/src/retail_pause_age_fade.cpp")
+target_link_libraries(retail_pause_age_fade PUBLIC retail_quad_submission)
+add_library(retail_ui_line STATIC "${PROJECT_SOURCE_DIR}/src/retail_ui_line.cpp")
+target_link_libraries(retail_ui_line PUBLIC retail_polygon_submission)
+add_library(retail_pause_frame STATIC "${PROJECT_SOURCE_DIR}/src/retail_pause_frame.cpp")
+target_link_libraries(retail_pause_frame PUBLIC retail_ui_line)
+add_library(retail_pause_gate STATIC "${PROJECT_SOURCE_DIR}/src/retail_pause_gate.cpp")
+target_link_libraries(retail_pause_gate PUBLIC project_options)
+add_library(retail_pause_meter STATIC "${PROJECT_SOURCE_DIR}/src/retail_pause_meter.cpp")
+target_link_libraries(retail_pause_meter PUBLIC retail_text_submission retail_quad_submission retail_ui_line)

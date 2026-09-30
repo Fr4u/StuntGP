@@ -1,0 +1,28 @@
+cmake_minimum_required(VERSION 3.25)
+project(MaterialD3D12 LANGUAGES CXX)
+enable_testing()
+add_library(gpu_fixture_core STATIC
+  ../../src/renderer.cpp ../../src/polygon_d3d12.cpp ../../src/material_d3d12.cpp
+  ../../src/assets.cpp ../../src/model_resources.cpp ../../src/source_pmd_model.cpp ../../src/source_allocation_bank.cpp ../../src/live_scene_geometry.cpp
+  ../../src/retail_camera_transform.cpp ../../src/retail_camera.cpp
+  ../../src/retail_model_matrices.cpp ../../src/retail_world_view_prefix.cpp
+  ../../src/retail_material_reload.cpp ../../src/retail_world_material_loading.cpp ../../src/retail_world_materials.cpp
+  ../../src/retail_material_filesystem.cpp)
+target_include_directories(gpu_fixture_core PUBLIC ../../include)
+target_compile_features(gpu_fixture_core PUBLIC cxx_std_23)
+target_compile_definitions(gpu_fixture_core PUBLIC NOMINMAX WIN32_LEAN_AND_MEAN UNICODE _UNICODE)
+target_compile_options(gpu_fixture_core PUBLIC /W4 /WX /fp:strict /permissive- /utf-8 /EHsc)
+target_link_libraries(gpu_fixture_core PUBLIC d3d12 dxgi d3dcompiler dxguid gdi32)
+add_executable(material_d3d12_tests ../material_d3d12.cpp)
+target_link_libraries(material_d3d12_tests PRIVATE gpu_fixture_core)
+add_executable(polygon_window_tests ../polygon_window.cpp)
+target_link_libraries(polygon_window_tests PRIVATE gpu_fixture_core)
+if(NOT DEFINED PROBE_OUTPUT)
+  message(FATAL_ERROR "PROBE_OUTPUT must name a fresh evidence directory")
+endif()
+get_filename_component(RETAIL_ROOT "../../data/retail" ABSOLUTE BASE_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+foreach(adapter warp hardware)
+  add_test(NAME material_d3d12_${adapter} COMMAND material_d3d12_tests --${adapter} "${RETAIL_ROOT}" "${PROBE_OUTPUT}/material-${adapter}")
+  add_test(NAME polygon_window_${adapter} COMMAND polygon_window_tests --${adapter} "${PROBE_OUTPUT}/window-${adapter}")
+  set_tests_properties(material_d3d12_${adapter} polygon_window_${adapter} PROPERTIES TIMEOUT 240 RUN_SERIAL TRUE)
+endforeach()

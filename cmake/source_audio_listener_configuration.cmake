@@ -1,0 +1,18 @@
+include_guard(GLOBAL)
+if(NOT TARGET project_options)
+  message(FATAL_ERROR "source listener configuration requires project_options")
+endif()
+# One small inline leaf; standalone startup consumers need no additional TU.
+# It does not depend on a native factory, race_session or a runtime backend.
+add_library(source_audio_listener_configuration INTERFACE)
+target_link_libraries(source_audio_listener_configuration INTERFACE project_options)
+if(BUILD_TESTING)
+  add_executable(source_audio_listener_configuration_tests "${PROJECT_SOURCE_DIR}/tests/source_audio_listener_configuration_tests.cpp")
+  target_link_libraries(source_audio_listener_configuration_tests PRIVATE source_audio_listener_configuration)
+  add_test(NAME source_audio_listener_configuration_core COMMAND source_audio_listener_configuration_tests)
+  if(WIN32)
+    add_executable(source_audio_listener_configuration_sdk_tests "${PROJECT_SOURCE_DIR}/tests/source_audio_listener_configuration_sdk_tests.cpp")
+    target_link_libraries(source_audio_listener_configuration_sdk_tests PRIVATE source_audio_listener_configuration)
+    add_test(NAME source_audio_listener_configuration_sdk_abi COMMAND source_audio_listener_configuration_sdk_tests)
+  endif()
+endif()

@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.25)
+project(StuntGPRetailFontResourcesQualification LANGUAGES CXX)
+get_filename_component(SGN_ROOT "${CMAKE_CURRENT_LIST_DIR}/../.." ABSOLUTE)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+add_executable(retail_font_resources_oracle ../retail_font_resources_oracle.cpp
+ ../../src/retail_font_resources.cpp ../../src/source_allocation_bank.cpp ../../src/retail_frontend_font_metrics.cpp ../../src/assets.cpp)
+target_include_directories(retail_font_resources_oracle PRIVATE "${SGN_ROOT}/include")
+target_compile_options(retail_font_resources_oracle PRIVATE /W4 /WX /permissive- /utf-8 /EHsc /fp:strict)
+enable_testing()
+add_test(NAME retail_font_resources_source COMMAND retail_font_resources_oracle "${FONT_CORPUS}")

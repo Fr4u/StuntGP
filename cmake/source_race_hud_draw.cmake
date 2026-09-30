@@ -1,0 +1,5 @@
+include_guard(GLOBAL)
+if(NOT TARGET race_session OR NOT TARGET retail_race_hud_submission)
+  message(FATAL_ERROR "Source HUD requires the existing race/HUD targets")
+endif()
+target_sources(race_session PRIVATE src/source_race_hud_draw.cpp src/source_race_hud_draw_x64.asm)

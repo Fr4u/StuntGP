@@ -1,0 +1,10 @@
+#Include after source_application_literals/race_session and the Loader header integration.
+include_guard(GLOBAL)
+foreach(required IN ITEMS source_application_literals race_session)
+  if(NOT TARGET ${required})
+    message(FATAL_ERROR "source_car_key_formatter requires existing ${required}")
+  endif()
+endforeach()
+add_library(source_car_key_formatter STATIC "${PROJECT_SOURCE_DIR}/src/source_car_key_formatter.cpp")
+target_include_directories(source_car_key_formatter PUBLIC "${PROJECT_SOURCE_DIR}/include")
+target_link_libraries(source_car_key_formatter PUBLIC source_application_literals race_session)

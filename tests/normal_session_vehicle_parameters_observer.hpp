@@ -1,0 +1,168 @@
+#pragma once
+// Actual native parameters only. No retail mapping or producer is used.
+#include "normal_session_native_observer.hpp"
+#include <cstddef>
+#include <limits>
+namespace normal_native_observer {
+namespace vehicle_parameters_observer_detail {
+static_assert(sizeof(float)==4 && std::numeric_limits<float>::is_iec559);
+static_assert(sizeof(std::int32_t)==4 && sizeof(std::uint64_t)==8);
+static_assert(sizeof(void*)<=sizeof(std::uint64_t));
+static_assert(sizeof(Curve)==512 && alignof(Curve)==4);
+static_assert(std::is_standard_layout_v<TyreParameters> && std::is_trivially_copyable_v<TyreParameters>);
+static_assert(sizeof(TyreParameters)==40 && alignof(TyreParameters)==4);
+static_assert(std::is_same_v<decltype(TyreParameters::radius),float> && offsetof(TyreParameters,radius)==0 && sizeof(decltype(TyreParameters::radius))==4);
+static_assert(std::is_same_v<decltype(TyreParameters::pressure),float> && offsetof(TyreParameters,pressure)==4 && sizeof(decltype(TyreParameters::pressure))==4);
+static_assert(std::is_same_v<decltype(TyreParameters::static_friction),float> && offsetof(TyreParameters,static_friction)==8 && sizeof(decltype(TyreParameters::static_friction))==4);
+static_assert(std::is_same_v<decltype(TyreParameters::kinetic_friction),float> && offsetof(TyreParameters,kinetic_friction)==12 && sizeof(decltype(TyreParameters::kinetic_friction))==4);
+static_assert(std::is_same_v<decltype(TyreParameters::travel_in),float> && offsetof(TyreParameters,travel_in)==16 && sizeof(decltype(TyreParameters::travel_in))==4);
+static_assert(std::is_same_v<decltype(TyreParameters::damping_in),float> && offsetof(TyreParameters,damping_in)==20 && sizeof(decltype(TyreParameters::damping_in))==4);
+static_assert(std::is_same_v<decltype(TyreParameters::stiffness_in),float> && offsetof(TyreParameters,stiffness_in)==24 && sizeof(decltype(TyreParameters::stiffness_in))==4);
+static_assert(std::is_same_v<decltype(TyreParameters::travel_out),float> && offsetof(TyreParameters,travel_out)==28 && sizeof(decltype(TyreParameters::travel_out))==4);
+static_assert(std::is_same_v<decltype(TyreParameters::damping_out),float> && offsetof(TyreParameters,damping_out)==32 && sizeof(decltype(TyreParameters::damping_out))==4);
+static_assert(std::is_same_v<decltype(TyreParameters::stiffness_out),float> && offsetof(TyreParameters,stiffness_out)==36 && sizeof(decltype(TyreParameters::stiffness_out))==4);
+static_assert(std::is_standard_layout_v<VehicleParameters> && std::is_trivially_copyable_v<VehicleParameters>);
+static_assert(sizeof(VehicleParameters)==7032 && alignof(VehicleParameters)==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::friction_curve),Curve> && offsetof(VehicleParameters,friction_curve)==0 && sizeof(decltype(VehicleParameters::friction_curve))==512);
+static_assert(std::is_same_v<decltype(VehicleParameters::steering_curve),Curve> && offsetof(VehicleParameters,steering_curve)==512 && sizeof(decltype(VehicleParameters::steering_curve))==512);
+static_assert(std::is_same_v<decltype(VehicleParameters::mass),float> && offsetof(VehicleParameters,mass)==1024 && sizeof(decltype(VehicleParameters::mass))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::com_a),float> && offsetof(VehicleParameters,com_a)==1028 && sizeof(decltype(VehicleParameters::com_a))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::com_b),float> && offsetof(VehicleParameters,com_b)==1032 && sizeof(decltype(VehicleParameters::com_b))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::com_height),float> && offsetof(VehicleParameters,com_height)==1036 && sizeof(decltype(VehicleParameters::com_height))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::wheelbase),float> && offsetof(VehicleParameters,wheelbase)==1040 && sizeof(decltype(VehicleParameters::wheelbase))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::track_front),float> && offsetof(VehicleParameters,track_front)==1044 && sizeof(decltype(VehicleParameters::track_front))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::track_rear),float> && offsetof(VehicleParameters,track_rear)==1048 && sizeof(decltype(VehicleParameters::track_rear))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::length),float> && offsetof(VehicleParameters,length)==1052 && sizeof(decltype(VehicleParameters::length))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::width),float> && offsetof(VehicleParameters,width)==1056 && sizeof(decltype(VehicleParameters::width))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::height),float> && offsetof(VehicleParameters,height)==1060 && sizeof(decltype(VehicleParameters::height))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::ride_height),float> && offsetof(VehicleParameters,ride_height)==1064 && sizeof(decltype(VehicleParameters::ride_height))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::brake_bias),float> && offsetof(VehicleParameters,brake_bias)==1068 && sizeof(decltype(VehicleParameters::brake_bias))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::brake_acceleration),float> && offsetof(VehicleParameters,brake_acceleration)==1072 && sizeof(decltype(VehicleParameters::brake_acceleration))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::steering_max),float> && offsetof(VehicleParameters,steering_max)==1076 && sizeof(decltype(VehicleParameters::steering_max))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::steering_acceleration),float> && offsetof(VehicleParameters,steering_acceleration)==1080 && sizeof(decltype(VehicleParameters::steering_acceleration))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::steering_sensitivity),float> && offsetof(VehicleParameters,steering_sensitivity)==1084 && sizeof(decltype(VehicleParameters::steering_sensitivity))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::rpm_max),float> && offsetof(VehicleParameters,rpm_max)==1088 && sizeof(decltype(VehicleParameters::rpm_max))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::rpm_idle),float> && offsetof(VehicleParameters,rpm_idle)==1092 && sizeof(decltype(VehicleParameters::rpm_idle))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::rpm_limit),float> && offsetof(VehicleParameters,rpm_limit)==1096 && sizeof(decltype(VehicleParameters::rpm_limit))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::engine_decay),float> && offsetof(VehicleParameters,engine_decay)==1100 && sizeof(decltype(VehicleParameters::engine_decay))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::max_torque),float> && offsetof(VehicleParameters,max_torque)==1104 && sizeof(decltype(VehicleParameters::max_torque))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::torque_curves),std::array<Curve,4>> && offsetof(VehicleParameters,torque_curves)==1108 && sizeof(decltype(VehicleParameters::torque_curves))==2048);
+static_assert(std::is_same_v<decltype(VehicleParameters::drive_mode),std::int32_t> && offsetof(VehicleParameters,drive_mode)==3156 && sizeof(decltype(VehicleParameters::drive_mode))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::gear_count),std::int32_t> && offsetof(VehicleParameters,gear_count)==3160 && sizeof(decltype(VehicleParameters::gear_count))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::manual_gears),std::int32_t> && offsetof(VehicleParameters,manual_gears)==3164 && sizeof(decltype(VehicleParameters::manual_gears))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::final_drive),float> && offsetof(VehicleParameters,final_drive)==3168 && sizeof(decltype(VehicleParameters::final_drive))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::shift_time),float> && offsetof(VehicleParameters,shift_time)==3172 && sizeof(decltype(VehicleParameters::shift_time))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::efficiency),float> && offsetof(VehicleParameters,efficiency)==3176 && sizeof(decltype(VehicleParameters::efficiency))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::power_split),float> && offsetof(VehicleParameters,power_split)==3180 && sizeof(decltype(VehicleParameters::power_split))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::ratios),std::array<float,8>> && offsetof(VehicleParameters,ratios)==3184 && sizeof(decltype(VehicleParameters::ratios))==32);
+static_assert(std::is_same_v<decltype(VehicleParameters::drag_coefficient),float> && offsetof(VehicleParameters,drag_coefficient)==3216 && sizeof(decltype(VehicleParameters::drag_coefficient))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::lift_coefficient),float> && offsetof(VehicleParameters,lift_coefficient)==3220 && sizeof(decltype(VehicleParameters::lift_coefficient))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::frontal_area),float> && offsetof(VehicleParameters,frontal_area)==3224 && sizeof(decltype(VehicleParameters::frontal_area))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::tyres),std::array<TyreParameters,4>> && offsetof(VehicleParameters,tyres)==3228 && sizeof(decltype(VehicleParameters::tyres))==160);
+static_assert(std::is_same_v<decltype(VehicleParameters::turbo_acceleration),float> && offsetof(VehicleParameters,turbo_acceleration)==3388 && sizeof(decltype(VehicleParameters::turbo_acceleration))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::turbo_max),float> && offsetof(VehicleParameters,turbo_max)==3392 && sizeof(decltype(VehicleParameters::turbo_max))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::turbo_decay),float> && offsetof(VehicleParameters,turbo_decay)==3396 && sizeof(decltype(VehicleParameters::turbo_decay))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::turbo_scale),float> && offsetof(VehicleParameters,turbo_scale)==3400 && sizeof(decltype(VehicleParameters::turbo_scale))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::turbo_curve),Curve> && offsetof(VehicleParameters,turbo_curve)==3404 && sizeof(decltype(VehicleParameters::turbo_curve))==512);
+static_assert(std::is_same_v<decltype(VehicleParameters::turbo_energy_threshold),float> && offsetof(VehicleParameters,turbo_energy_threshold)==3916 && sizeof(decltype(VehicleParameters::turbo_energy_threshold))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::turbo_consumption),float> && offsetof(VehicleParameters,turbo_consumption)==3920 && sizeof(decltype(VehicleParameters::turbo_consumption))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::fuel_capacity),float> && offsetof(VehicleParameters,fuel_capacity)==3924 && sizeof(decltype(VehicleParameters::fuel_capacity))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::fuel_unit_mass),float> && offsetof(VehicleParameters,fuel_unit_mass)==3928 && sizeof(decltype(VehicleParameters::fuel_unit_mass))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::fuel_consumption),float> && offsetof(VehicleParameters,fuel_consumption)==3932 && sizeof(decltype(VehicleParameters::fuel_consumption))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::consumption_curve),Curve> && offsetof(VehicleParameters,consumption_curve)==3936 && sizeof(decltype(VehicleParameters::consumption_curve))==512);
+static_assert(std::is_same_v<decltype(VehicleParameters::refuel_rate),float> && offsetof(VehicleParameters,refuel_rate)==4448 && sizeof(decltype(VehicleParameters::refuel_rate))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::digital_steering),Curve> && offsetof(VehicleParameters,digital_steering)==4452 && sizeof(decltype(VehicleParameters::digital_steering))==512);
+static_assert(std::is_same_v<decltype(VehicleParameters::digital_brake),Curve> && offsetof(VehicleParameters,digital_brake)==4964 && sizeof(decltype(VehicleParameters::digital_brake))==512);
+static_assert(std::is_same_v<decltype(VehicleParameters::analog_steering),Curve> && offsetof(VehicleParameters,analog_steering)==5476 && sizeof(decltype(VehicleParameters::analog_steering))==512);
+static_assert(std::is_same_v<decltype(VehicleParameters::analog_brake),Curve> && offsetof(VehicleParameters,analog_brake)==5988 && sizeof(decltype(VehicleParameters::analog_brake))==512);
+static_assert(std::is_same_v<decltype(VehicleParameters::velocity_steering),Curve> && offsetof(VehicleParameters,velocity_steering)==6500 && sizeof(decltype(VehicleParameters::velocity_steering))==512);
+static_assert(std::is_same_v<decltype(VehicleParameters::launch_time),float> && offsetof(VehicleParameters,launch_time)==7012 && sizeof(decltype(VehicleParameters::launch_time))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::launch_tolerance),float> && offsetof(VehicleParameters,launch_tolerance)==7016 && sizeof(decltype(VehicleParameters::launch_tolerance))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::launch_speed),float> && offsetof(VehicleParameters,launch_speed)==7020 && sizeof(decltype(VehicleParameters::launch_speed))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::max_pitch_speed),float> && offsetof(VehicleParameters,max_pitch_speed)==7024 && sizeof(decltype(VehicleParameters::max_pitch_speed))==4);
+static_assert(std::is_same_v<decltype(VehicleParameters::max_yaw_speed),float> && offsetof(VehicleParameters,max_yaw_speed)==7028 && sizeof(decltype(VehicleParameters::max_yaw_speed))==4);
+}
+inline void capture_vehicle_parameters_owners(RaceSession& session,const std::filesystem::path& output){
+    const auto& bank=session.state().vehicles.parameters;
+    static_assert(std::is_same_v<std::remove_cvref_t<decltype(bank)>,std::array<VehicleParameters,6>>);
+    Observations out;
+    out.value("bank/address",reinterpret_cast<std::uint64_t>(bank.data()));
+    out.value("bank/count",static_cast<std::uint32_t>(bank.size()));
+    out.value("bank/native-stride",static_cast<std::uint32_t>(sizeof(VehicleParameters)));
+    for(unsigned slot=0;slot<bank.size();++slot){
+        const auto& p=bank[slot];const auto key="vehicle/"+std::to_string(slot)+"/";
+        out.value(key+"address",reinterpret_cast<std::uint64_t>(&p));
+        out.ref(key+"friction_curve",p.friction_curve);
+        out.ref(key+"steering_curve",p.steering_curve);
+        out.ref(key+"mass",p.mass);
+        out.ref(key+"com_a",p.com_a);
+        out.ref(key+"com_b",p.com_b);
+        out.ref(key+"com_height",p.com_height);
+        out.ref(key+"wheelbase",p.wheelbase);
+        out.ref(key+"track_front",p.track_front);
+        out.ref(key+"track_rear",p.track_rear);
+        out.ref(key+"length",p.length);
+        out.ref(key+"width",p.width);
+        out.ref(key+"height",p.height);
+        out.ref(key+"ride_height",p.ride_height);
+        out.ref(key+"brake_bias",p.brake_bias);
+        out.ref(key+"brake_acceleration",p.brake_acceleration);
+        out.ref(key+"steering_max",p.steering_max);
+        out.ref(key+"steering_acceleration",p.steering_acceleration);
+        out.ref(key+"steering_sensitivity",p.steering_sensitivity);
+        out.ref(key+"rpm_max",p.rpm_max);
+        out.ref(key+"rpm_idle",p.rpm_idle);
+        out.ref(key+"rpm_limit",p.rpm_limit);
+        out.ref(key+"engine_decay",p.engine_decay);
+        out.ref(key+"max_torque",p.max_torque);
+        out.ref(key+"torque_curves",p.torque_curves);
+        out.ref(key+"drive_mode",p.drive_mode);
+        out.ref(key+"gear_count",p.gear_count);
+        out.ref(key+"manual_gears",p.manual_gears);
+        out.ref(key+"final_drive",p.final_drive);
+        out.ref(key+"shift_time",p.shift_time);
+        out.ref(key+"efficiency",p.efficiency);
+        out.ref(key+"power_split",p.power_split);
+        out.ref(key+"ratios",p.ratios);
+        out.ref(key+"drag_coefficient",p.drag_coefficient);
+        out.ref(key+"lift_coefficient",p.lift_coefficient);
+        out.ref(key+"frontal_area",p.frontal_area);
+        out.ref(key+"turbo_acceleration",p.turbo_acceleration);
+        out.ref(key+"turbo_max",p.turbo_max);
+        out.ref(key+"turbo_decay",p.turbo_decay);
+        out.ref(key+"turbo_scale",p.turbo_scale);
+        out.ref(key+"turbo_curve",p.turbo_curve);
+        out.ref(key+"turbo_energy_threshold",p.turbo_energy_threshold);
+        out.ref(key+"turbo_consumption",p.turbo_consumption);
+        out.ref(key+"fuel_capacity",p.fuel_capacity);
+        out.ref(key+"fuel_unit_mass",p.fuel_unit_mass);
+        out.ref(key+"fuel_consumption",p.fuel_consumption);
+        out.ref(key+"consumption_curve",p.consumption_curve);
+        out.ref(key+"refuel_rate",p.refuel_rate);
+        out.ref(key+"digital_steering",p.digital_steering);
+        out.ref(key+"digital_brake",p.digital_brake);
+        out.ref(key+"analog_steering",p.analog_steering);
+        out.ref(key+"analog_brake",p.analog_brake);
+        out.ref(key+"velocity_steering",p.velocity_steering);
+        out.ref(key+"launch_time",p.launch_time);
+        out.ref(key+"launch_tolerance",p.launch_tolerance);
+        out.ref(key+"launch_speed",p.launch_speed);
+        out.ref(key+"max_pitch_speed",p.max_pitch_speed);
+        out.ref(key+"max_yaw_speed",p.max_yaw_speed);
+        for(unsigned tyre=0;tyre<p.tyres.size();++tyre){
+            const auto& t=p.tyres[tyre];const auto tyre_key=key+"tyre/"+std::to_string(tyre)+"/";
+            out.ref(tyre_key+"radius",t.radius);
+            out.ref(tyre_key+"pressure",t.pressure);
+            out.ref(tyre_key+"static_friction",t.static_friction);
+            out.ref(tyre_key+"kinetic_friction",t.kinetic_friction);
+            out.ref(tyre_key+"travel_in",t.travel_in);
+            out.ref(tyre_key+"damping_in",t.damping_in);
+            out.ref(tyre_key+"stiffness_in",t.stiffness_in);
+            out.ref(tyre_key+"travel_out",t.travel_out);
+            out.ref(tyre_key+"damping_out",t.damping_out);
+            out.ref(tyre_key+"stiffness_out",t.stiffness_out);
+        }
+    }
+    out.save(output);
+}
+}

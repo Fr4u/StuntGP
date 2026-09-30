@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pl" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StuntGP NEW — Stunt GP · Wybierz język / Choose language</title>
+  <meta name="description" content="StuntGP NEW: nieoficjalna rekonstrukcja gry Stunt GP dla Windows x64 — wybierz język strony. Unofficial Stunt GP reconstruction for Windows x64 — choose your language.">
+  <meta name="theme-color" content="#071a07">
+{{{HEAD_LINKS}}}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="StuntGP NEW — Stunt GP">
+  <meta property="og:description" content="Unofficial Stunt GP reconstruction for Windows x64 · DirectX 12 · R20">
+  <meta property="og:image" content="{{OG_IMAGE}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800;1,900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+<body class="lang-page">
+  <main class="lang-screen">
+    <h1 class="visually-hidden">StuntGP NEW — {{title_all}}</h1>
+    <div class="lang-stage" data-lang-stage>
+      <div class="lang-wheel" aria-hidden="true" data-lang-wheel>
+{{{LANG_FLAGS}}}
+      </div>
+      <nav class="lang-menu" aria-label="Język · Language · Taal · Sprache · Språk · Lingua · Idioma · Langue">
+        <ul class="lang-list" data-lang-list>
+{{{LANG_BUTTONS}}}
+        </ul>
+      </nav>
+      <div class="helpbar lang-help">
+        <span class="helpbar__icon" aria-hidden="true">i</span>
+        <span class="helpbar__text" data-lang-hint lang="pl" aria-live="polite">{{hint_pl}}</span>
+      </div>
+      <p class="lang-legal" data-lang-legal lang="pl">{{legal_pl}}</p>
+    </div>
+  </main>
+  <script type="application/json" id="lang-data">{{{SCREEN_JSON}}}</script>
+  <script src="assets/js/language.js" defer></script>
+</body>
+</html>

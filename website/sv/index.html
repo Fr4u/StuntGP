@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StuntGP NEW — en rekonstruktion av Stunt GP för Windows x64</title>
+  <meta name="description" content="StuntGP NEW är en inofficiell fanrekonstruktion av Stunt GP (Team17) för 64-bitars Windows: DirectX 12, stabila 60 spelsteg per sekund och bild i alla bildformat. Ladda ner version R1.">
+  <meta name="theme-color" content="#3d0b0b">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:title" content="StuntGP NEW — en rekonstruktion av Stunt GP">
+  <meta property="og:description" content="Team17:s klassiska racingspel med radiostyrda bilar, återuppbyggt ur originalspelets kod. Windows x64, DirectX 12. Version R1 att ladda ner.">
+  <meta property="og:image" content="../assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/img/favicon-64.png">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800;1,900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css?v=accd273fbe">
+  <link rel="preload" as="image" href="../assets/shots/r20-race-temple.webp" type="image/webp">
+</head>
+<body data-lang="sv">
+  <a class="skip-link" href="#content">Hoppa till innehållet</a>
+
+  <header class="topbar" data-topbar>
+    <div class="topbar__inner">
+      <a class="brand" href="#start" aria-label="StuntGP NEW — början av sidan">
+        <img class="brand__logo" src="../assets/img/stuntgp-logo-small.png" width="176" height="147" alt="">
+        <span class="brand__text">StuntGP <span class="pill pill--red pill--tiny">NEW</span></span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="Huvudnavigering" data-nav>
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#game">Spelet</a></li>
+          <li><a class="nav__link" href="#gallery">Galleri</a></li>
+          <li><a class="nav__link" href="#vehicles">Fordon</a></li>
+          <li><a class="nav__link" href="#download">Ladda ner</a></li>
+          <li><a class="nav__link" href="#controls">Kontroller</a></li>
+          <li><a class="nav__link" href="#status">Projektstatus</a></li>
+          <li><a class="nav__link" href="#faq">Vanliga frågor</a></li>
+        </ul>
+        <a class="btn btn--race btn--small nav__cta" href="#download">
+          <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Hämta R1
+        </a>
+      </nav>
+      <div class="langsw" data-langsw>
+        <button class="langsw__btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langsw-menu" data-langsw-btn>
+          <img class="langsw__flag" src="../assets/img/flags/sv.webp" width="212" height="128" alt="">
+          <span class="langsw__code">SV</span>
+          <span class="visually-hidden">Webbplatsens språk: svenska. Byt språk</span>
+        </button>
+        <ul class="langsw__menu" id="langsw-menu" data-langsw-menu hidden>
+          <li><a href="../pl/" hreflang="pl" lang="pl" data-lang="pl"><img src="../assets/img/flags/pl.webp" width="212" height="128" alt=""><span>Polski</span></a></li>
+          <li><a href="../en/" hreflang="en" lang="en" data-lang="en"><img src="../assets/img/flags/en.webp" width="212" height="128" alt=""><span>English</span></a></li>
+          <li><a href="../nl/" hreflang="nl" lang="nl" data-lang="nl"><img src="../assets/img/flags/nl.webp" width="212" height="128" alt=""><span>Nederlands</span></a></li>
+          <li><a href="../de/" hreflang="de" lang="de" data-lang="de"><img src="../assets/img/flags/de.webp" width="212" height="128" alt=""><span>Deutsch</span></a></li>
+          <li><a href="../sv/" hreflang="sv" lang="sv" data-lang="sv" aria-current="page"><img src="../assets/img/flags/sv.webp" width="212" height="128" alt=""><span>Svenska</span></a></li>
+          <li><a href="../it/" hreflang="it" lang="it" data-lang="it"><img src="../assets/img/flags/it.webp" width="212" height="128" alt=""><span>Italiano</span></a></li>
+          <li><a href="../es/" hreflang="es" lang="es" data-lang="es"><img src="../assets/img/flags/es.webp" width="212" height="128" alt=""><span>Español</span></a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr" data-lang="fr"><img src="../assets/img/flags/fr.webp" width="212" height="128" alt=""><span>Français</span></a></li>
+          <li class="langsw__screen"><a href="../" data-lang-screen>Språkval</a></li>
+        </ul>
+      </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="visually-hidden">Meny</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <!-- ============ HERO ============ -->
+    <section class="hero tile tile--grey" id="start" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="hero__legal">Inofficiell fanrekonstruktion · Stunt GP © 2001 Team17 Software Ltd.</p>
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <h1 class="hero__title" id="hero-title">
+              <span class="hero__logo-drop">
+                <span class="hero__logo-hop" data-title-logo>
+                  <span class="hero__logo-slide">
+                    <img class="hero__logo" src="../assets/img/stuntgp-logo.png" width="401" height="334" alt="Stunt GP">
+                    <span class="pill pill--red pill--big">NEW</span>
+                  </span>
+                </span>
+              </span>
+            </h1>
+            <div class="hero__chips">
+              <span class="chip chip--hud">Version R1</span>
+              <span class="chip">2026-09-30</span>
+              <span class="chip">Windows 10/11 x64</span>
+              <span class="chip">DirectX 12</span>
+            </div>
+            <div class="hero__panel">
+              <p class="hero__lead">Team17:s klassiska racingspel med radiostyrda bilar — återuppbyggt ur originalspelets kod och körs direkt på Windows x64 med DirectX 12.</p>
+              <p class="hero__sub">Originalmenyer, modeller, texturer och musik. Stabil takt på 60 spelsteg per sekund och en bild som passar varje skärm.</p>
+            </div>
+            <div class="hero__actions">
+              <a class="btn btn--race" href="#download">
+                <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                Ladda ner version R1
+              </a>
+              <a class="btn btn--menu" href="#gallery"><span class="btn__dot" aria-hidden="true"></span>Se galleriet</a>
+            </div>
+            <p class="hero__meta">ZIP · 2,2 MB · bara programmet, spelfilerna från ditt eget exemplar</p>
+          </div>
+
+          <div class="hero__visual">
+            <div class="frame hero__frame">
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="bildspel" aria-label="Skärmbilder från loppet">
+                <figure class="slideshow__slide is-active" data-caption="Arkadlopp — japansk miljö, 201 på hastighetsmätaren">
+                  <img src="../assets/shots/r20-race-temple.webp" width="1600" height="900" alt="Skärmbild från ett lopp: en radiostyrd bil rusar förbi ett japanskt tempel och ett slott bland blommande körsbärsträd; HUD:en visar sjätte plats och hastigheten 201." fetchpriority="high">
+                </figure>
+                <figure class="slideshow__slide" data-caption="I luften efter en ramp — över banan och en japansk trädgård">
+                  <img src="../assets/shots/r20-race-jump.webp" width="1600" height="900" alt="Skärmbild från ett lopp: en bil i luften över banan, i bakgrunden en japansk trädgård, en bro och en START-banderoll." loading="lazy">
+                </figure>
+                <figure class="slideshow__slide" data-caption="Loppets start — den ursprungliga ”GO”-skylten och sex bilar på banan">
+                  <img src="../assets/shots/r20-race-go.webp" width="1600" height="900" alt="Skärmbild från starten: en grön GO-skylt över banan, motståndarna drar iväg framför spelarens bil." loading="lazy">
+                </figure>
+                <figure class="slideshow__slide" data-caption="Upp på rampen — femte plats, 182 på hastighetsmätaren">
+                  <img src="../assets/shots/r20-race-ramp.webp" width="1600" height="900" alt="Skärmbild från ett lopp: spelarens bil kör upp på en orange ramp bakom en grön motståndare; HUD:en visar femte plats och hastigheten 182." loading="lazy">
+                </figure>
+              </div>
+            </div>
+            <div class="helpbar hero__helpbar">
+              <span class="helpbar__icon" aria-hidden="true">i</span>
+              <span class="helpbar__text" data-slide-caption aria-live="polite">Arkadlopp — japansk miljö, 201 på hastighetsmätaren</span>
+            </div>
+            <div class="slideshow__dots" data-slide-dots role="group" aria-label="Välj skärmbild"></div>
+          </div>
+        </div>
+
+        <p class="hero__prompt"><a href="#game" data-title-prompt>TRYCK PÅ RETUR FÖR ATT FORTSÄTTA</a></p>
+
+        <ul class="hud-stats" aria-label="De viktigaste siffrorna">
+          <li class="hud-stat">
+            <span class="hud-stat__label">Takt</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">60</span><span class="hud-stat__unit">steg/s</span></span>
+            <span class="hud-stat__desc">som i originalet, oberoende av skärmens uppdateringsfrekvens</span>
+          </li>
+          <li class="hud-stat">
+            <span class="hud-stat__label">Tick</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">3–5</span><span class="hud-stat__unit">ms</span></span>
+            <span class="hud-stat__desc">ett helt spelsteg inklusive rendering (upphovspersonens mätning i R19)</span>
+          </li>
+          <li class="hud-stat">
+            <span class="hud-stat__label">Start</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">6</span><span class="hud-stat__unit">bilar</span></span>
+            <span class="hud-stat__desc">spelaren och fem AI-styrda motståndare</span>
+          </li>
+          <li class="hud-stat">
+            <span class="hud-stat__label">Bild</span>
+            <span class="hud-stat__box"><span class="hud-stat__value">Hor+</span></span>
+            <span class="hud-stat__desc">alla bildformat, utan svarta kanter och utan utsträckning</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ GAME ============ -->
+    <section class="section tile tile--orange" id="game" aria-labelledby="game-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Spelet</p>
+          <h2 class="section__title" id="game-title">Originalspelet. En ny, inbyggd motor.</h2>
+        </div>
+        <div class="about">
+          <div class="panel about__text">
+            <p>Stunt GP är ett racingspel med radiostyrda bilar på banor fulla av ramper, hopp och kraftigt doserade kurvor. <strong>StuntGP NEW</strong> återskapar hela vägen genom spelet: språkval, titelskärm, menyer, namninmatning, val av läge, fordon och bana, loppet, resultaten och återkomsten till menyn — allt i en sammanhängande spelvärld.</p>
+            <p>Det är varken en emulator eller ett skal runt den gamla EXE-filen. Körmekanik, kontakt med banan, motståndarnas AI och kameran är ny inbyggd kod, återuppbyggd utifrån originalprogrammets instruktioner. Spelet använder originaldata: modeller, texturer, typsnitt, musik och effekter.</p>
+            <p>Där originalets beteende ännu inte har återskapats rapporterar spelet ett tydligt fel med funktionens namn — i stället för att ersätta det med en påhittad ”leksaksmodell” för körningen.</p>
+          </div>
+
+          <div class="menu-replica" aria-labelledby="modes-title">
+            <p class="titlebar titlebar--compact" id="modes-title">Singleplayer</p>
+            <div class="menu-replica__menu">
+              <div class="mode-icon" aria-hidden="true" data-mode-icon>
+                <img class="mode-icon__img is-active" src="../assets/img/mode-arcade.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="../assets/img/mode-exhibition.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="../assets/img/mode-time-trial.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="../assets/img/mode-stunt-challenge.webp" width="126" height="126" alt="" decoding="async">
+                <img class="mode-icon__img" src="../assets/img/mode-championship.webp" width="126" height="126" alt="" decoding="async">
+              </div>
+              <ul class="menu-replica__list" data-modes>
+                <li><button class="menu-btn is-selected" type="button" data-help-main="Snabb racingaction." data-help-sub="" aria-describedby="modes-help">Arkad</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="Utforma ditt eget lopp." data-help-sub="" aria-describedby="modes-help">Uppvisning</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="Tävla mot klockan." data-help-sub="" aria-describedby="modes-help">Tidsträning</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="Freestyle-stunts." data-help-sub="" aria-describedby="modes-help">Stuntutmaningen</button></li>
+                <li><button class="menu-btn" type="button" data-help-main="Kör en hel säsong i Stunt GP." data-help-sub="" aria-describedby="modes-help">GP-mästerskapet</button></li>
+              </ul>
+            </div>
+            <div class="helpbar" id="modes-help">
+              <span class="helpbar__icon" aria-hidden="true">i</span>
+              <span class="helpbar__text" aria-live="polite"><span lang="sv" data-help-main-out>Snabb racingaction.</span> <span class="helpbar__pl" data-help-sub-out></span></span>
+            </div>
+            <p class="note note--on-tile">Lägen från originalspelets meny. Namn och hjälptexter kommer direkt från den svenska versionen i spelfilerna.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section section--dark" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Egenskaper</p>
+          <h2 class="section__title" id="features-title">Troget originalet, bekvämt på en modern dator</h2>
+        </div>
+        <ul class="features">
+          <li class="feature"><h3 class="feature__title">Originalmenyer</h3><p>Språkval, titelskärm, huvudmeny, namninmatning, fordonsval och banförhandsvisning körs med spelets originalgrafik, typsnitt och texter.</p></li>
+          <li class="feature"><h3 class="feature__title">Ett sammanhängande spel</h3><p>Meny → bana och läge → lopp → resultat → meny. Allt sker i en spelvärld, utan något separat förhandsvisningsläge.</p></li>
+          <li class="feature"><h3 class="feature__title">60 steg per sekund</h3><p>Simuleringen går i originalets takt: 60 steg per sekund, oberoende av skärmens uppdateringsfrekvens. Ett spelsteg inklusive rendering tar cirka 3–5 ms.</p></li>
+          <li class="feature"><h3 class="feature__title">Alla skärmar</h3><p>Bilden fyller fönstret i inbyggd upplösning, utan svarta kanter och utan utsträckning. Loppen använder Hor+ — mer sikt åt sidorna med originalets vertikala synfält. HUD:en håller sig vid skärmkanterna.</p></li>
+          <li class="feature"><h3 class="feature__title">120, 144, 240 Hz</h3><p>På snabba skärmar försvinner inga tangenttryckningar, och musik, ljus och laddningsskärmar behåller originalets takt. Valfri interpolering gör rörelsen mjukare.</p></li>
+          <li class="feature"><h3 class="feature__title">Originalfiler</h3><p>Modeller av fordon och banor, texturer, typsnitt, musik och ljudeffekter kommer från originalspelets filer.</p></li>
+          <li class="feature"><h3 class="feature__title">Återskapat, inte påhittat</h3><p>Varje återskapat beteende måste hänvisa till konkreta instruktioner i den fastlåsta ursprungliga EXE-filen. Pseudokod från dekompilatorn räknas inte ensam som bevis.</p></li>
+          <li class="feature"><h3 class="feature__title">Originalets buggar åtgärdade</h3><p>11 dokumenterade rättelser, beskrivna separat från det återskapade beteendet — till exempel ett halvsekundslångt stopp ungefär var sjunde minut, orsakat av att en 32-bitars klockräknare slår runt.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section class="section tile tile--grey" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Galleri</p>
+          <h2 class="section__title" id="gallery-title">Riktiga skärmbilder från spelet</h2>
+          <p class="section__intro panel panel--slim">Alla bilder är skärmbilder från den körande rekonstruktionen — utan retusch och utan skisser. Bilder märkta R20 togs 2026-09-28 i den nedladdningsbara versionen; de tre som är märkta med ett datum kommer från en tidigare version från 2026-09-07.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Galleriets filter" data-filters>
+          <button class="menu-btn menu-btn--pill is-selected" type="button" data-filter="all" aria-pressed="true">Alla</button>
+          <button class="menu-btn menu-btn--pill" type="button" data-filter="race" aria-pressed="false">Lopp</button>
+          <button class="menu-btn menu-btn--pill" type="button" data-filter="menu" aria-pressed="false">Menyer</button>
+        </div>
+
+        <ul class="gallery" data-gallery>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/r20-race-temple.webp" data-caption="Arkadlopp — japansk miljö, 201 på hastighetsmätaren (R20)">
+              <img src="../assets/shots/r20-race-temple-thumb.webp" width="640" height="360" loading="lazy" alt="Lopp förbi ett japanskt tempel och ett slott i hastigheten 201.">
+            </a>
+            <p class="gallery__cap">Arkadlopp — japansk miljö <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/r20-race-jump.webp" data-caption="I luften efter en ramp (R20)">
+              <img src="../assets/shots/r20-race-jump-thumb.webp" width="640" height="360" loading="lazy" alt="En bil i luften över banan och en japansk trädgård.">
+            </a>
+            <p class="gallery__cap">I luften efter en ramp <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/r20-race-ramp.webp" data-caption="Upp på rampen — femte plats, 182 på hastighetsmätaren (R20)">
+              <img src="../assets/shots/r20-race-ramp-thumb.webp" width="640" height="360" loading="lazy" alt="Spelarens bil kör upp på en orange ramp bakom en grön motståndare.">
+            </a>
+            <p class="gallery__cap">Upp på rampen <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/r20-race-go.webp" data-caption="Loppets start med den ursprungliga ”GO”-skylten (R20)">
+              <img src="../assets/shots/r20-race-go-thumb.webp" width="640" height="360" loading="lazy" alt="Loppets start: en grön GO-skylt över banan.">
+            </a>
+            <p class="gallery__cap">Start — ”GO” <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/arch-race-hangar.webp" data-caption="Lopp på TRACK1 i en hangar — tidigare version från 2026-09-07">
+              <img src="../assets/shots/arch-race-hangar-thumb.webp" width="640" height="360" loading="lazy" alt="Lopp i en hangar: en bil vid ett rödvitrandigt räcke, sjätte plats, hastighet 180.">
+            </a>
+            <p class="gallery__cap">Lopp på TRACK1 i en hangar <span class="tag tag--old">2026-09-07</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="../assets/shots/arch-time-trial.webp" data-caption="Tidsträning på TRACK1 — tidigare version från 2026-09-07">
+              <img src="../assets/shots/arch-time-trial-thumb.webp" width="640" height="360" loading="lazy" alt="Tidsträning: en bil med flammande avgasrör på en bana i en hangar, hastighet 224.">
+            </a>
+            <p class="gallery__cap">Tidsträning <span class="tag tag--old">2026-09-07</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race menu">
+            <a class="gallery__link" href="../assets/shots/arch-pause.webp" data-caption="Pausmeny under ett lopp — tidigare version från 2026-09-07">
+              <img src="../assets/shots/arch-pause-thumb.webp" width="640" height="360" loading="lazy" alt="Pausmeny över ett lopp: RESUME, RESTART, EXIT, volym och kamera.">
+            </a>
+            <p class="gallery__cap">Pausmeny <span class="tag tag--old">2026-09-07</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-title.webp" data-caption="Titelskärm (R20)">
+              <img src="../assets/shots/r20-title-thumb.webp" width="640" height="360" loading="lazy" alt="Titelskärm med Stunt GP-logotypen och PRESS ENTER TO CONTINUE.">
+            </a>
+            <p class="gallery__cap">Titelskärm <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-menu-main.webp" data-caption="Huvudmeny (R20)">
+              <img src="../assets/shots/r20-menu-main-thumb.webp" width="640" height="360" loading="lazy" alt="Huvudmeny på orange bakgrund: SINGLE PLAYER, MULTI PLAYER, CATALOGUE, RECORDS, OPTIONS, QUIT.">
+            </a>
+            <p class="gallery__cap">Huvudmeny <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-menu-single.webp" data-caption="Lägen för en spelare (R20)">
+              <img src="../assets/shots/r20-menu-single-thumb.webp" width="640" height="360" loading="lazy" alt="Menyn SINGLE PLAYER: ARCADE, EXHIBITION, TIME TRIAL, STUNT CHALLENGE, CHAMPIONSHIP.">
+            </a>
+            <p class="gallery__cap">Lägen för en spelare <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-language.webp" data-caption="Språkval vid första starten (R20)">
+              <img src="../assets/shots/r20-language-thumb.webp" width="640" height="360" loading="lazy" alt="Skärm för språkval med flaggor: English, Nederlands, Deutsch, Svenska, Italiano, Espanol, Francais.">
+            </a>
+            <p class="gallery__cap">Språkval <span class="tag">R20</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="../assets/shots/r20-track-preview.webp" data-caption="Förhandsvisning av banan före loppet (R20)">
+              <img src="../assets/shots/r20-track-preview-thumb.webp" width="640" height="360" loading="lazy" alt="Skärmen TRACK PREVIEW med en modell av banan och beskrivningen av banan BANK JOB.">
+            </a>
+            <p class="gallery__cap">Förhandsvisning av banan <span class="tag">R20</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ VEHICLES ============ -->
+    <section class="section tile tile--blue" id="vehicles" aria-labelledby="vehicles-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Fordon</p>
+          <h2 class="section__title" id="vehicles-title">Stallen och deras maskiner</h2>
+          <p class="section__intro panel panel--slim">Så här ser fordonsvalet ut i version R20 — nedan fem exempelbilar från tre stall. Varje bil har egna värden för STUNT, GRIP och POWER och en beskrivning från originalspelet.</p>
+        </div>
+
+        <div class="garage" data-garage>
+          <div class="garage__teams" role="group" aria-label="Stall">
+            <button class="team-btn is-selected" type="button" data-team="wild" aria-pressed="true">
+              <img src="../assets/img/team-wild.png" width="199" height="254" alt="">
+              <span>Wild Wheels</span>
+            </button>
+            <button class="team-btn" type="button" data-team="aero" aria-pressed="false">
+              <img src="../assets/img/team-aero.png" width="254" height="220" alt="">
+              <span>Aero Blasters</span>
+            </button>
+            <button class="team-btn" type="button" data-team="speed" aria-pressed="false">
+              <img src="../assets/img/team-speed.png" width="254" height="244" alt="">
+              <span>Speed Demons</span>
+            </button>
+          </div>
+
+          <div class="garage__view">
+            <div class="frame garage__frame">
+              <a class="garage__zoom" href="../assets/shots/r20-vehicle-mean-streak.webp" data-garage-zoom>
+                <img class="garage__shot" src="../assets/shots/r20-vehicle-mean-streak.webp" width="1600" height="900" alt="Skärmen SELECT VEHICLE: Mean Streak från stallet Wild Wheels." data-garage-shot>
+                <span class="garage__zoom-hint" aria-hidden="true">Förstora</span>
+              </a>
+            </div>
+            <div class="info-panel garage__info" aria-live="polite">
+              <p class="garage__count" data-garage-count>1 / 5</p>
+              <h3 class="garage__name" data-garage-name>Mean Streak</h3>
+              <p class="garage__team" data-garage-team>Wild Wheels</p>
+              <p class="garage__pl" data-garage-pl>”En snabb, lätt och följsam racerbil som har mycket att erbjuda dem som vill modifiera sitt fordon.”</p>
+              <p class="garage__en" lang="en" data-garage-en hidden></p>
+              <div class="garage__nav">
+                <button class="round-btn" type="button" data-garage-prev aria-label="Föregående fordon">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button class="round-btn" type="button" data-garage-next aria-label="Nästa fordon">
+                  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section class="section tile tile--orange" id="download" aria-labelledby="download-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Ladda ner</p>
+          <h2 class="section__title" id="download-title">Redo för start?</h2>
+        </div>
+
+        <div class="download">
+          <div class="download__card frame">
+            <div class="download__inner">
+              <div class="download__version">
+                <span class="hud-label">Version</span>
+                <span class="download__r">R1</span>
+                <span class="download__date">Släppt 2026-09-30</span>
+              </div>
+              <a class="btn btn--race btn--wide" href="https://github.com/Fr4u/StuntGP/releases/download/r1/StuntGP_NEW-R1-program.zip">
+                <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                Ladda ner ZIP (2,2 MB)
+              </a>
+              <dl class="facts">
+                <div><dt>Fil</dt><dd><code>StuntGP_NEW-R1-program.zip</code></dd></div>
+                <div><dt>Storlek</dt><dd>2,2 MB <span class="muted">(2 314 032 byte)</span></dd></div>
+                <div><dt>Uppackat</dt><dd>4,9 MB, 6 filer</dd></div>
+                <div class="facts__hash">
+                  <dt>SHA-256 (ZIP)</dt>
+                  <dd><code class="hash">f9ff010cbe5c14cf920af58bcee4f7f1ffbe364548f92c1d7e771c45f1da537a</code>
+                    <button class="copy-btn" type="button" data-copy="f9ff010cbe5c14cf920af58bcee4f7f1ffbe364548f92c1d7e771c45f1da537a">Kopiera</button></dd>
+                </div>
+                <div class="facts__hash">
+                  <dt>SHA-256 (StuntGP_NEW.exe)</dt>
+                  <dd><code class="hash">17d884df278ff3df0f59e0d4f1bd629ca481f62c6b561247d635c979b8c1ab9c</code>
+                    <button class="copy-btn" type="button" data-copy="17d884df278ff3df0f59e0d4f1bd629ca481f62c6b561247d635c979b8c1ab9c">Kopiera</button></dd>
+                </div>
+              </dl>
+              <div class="download__verify">
+                <p class="download__sums">Kontrollsummor: <a href="https://github.com/Fr4u/StuntGP/releases/download/r1/SHA256SUMS.txt">SHA256SUMS.txt</a>. Kontrollera i PowerShell:</p>
+                <div class="codeblock codeblock--compact">
+                  <code>Get-FileHash .\StuntGP_NEW-R1-program.zip -Algorithm SHA256</code>
+                  <button class="copy-btn" type="button" data-copy="Get-FileHash .\StuntGP_NEW-R1-program.zip -Algorithm SHA256">Kopiera</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="download__side">
+            <div class="panel requirements">
+              <h3 class="panel__title">Systemkrav</h3>
+              <ul class="checklist">
+                <li>Windows 10 eller 11, 64-bitars</li>
+                <li>Grafikkort med DirectX 12 (funktionsnivå 11_0 eller högre)</li>
+                <li>Microsoft Visual C++ Redistributable 2015–2022 (x64) — <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe" rel="noopener">ladda ner från Microsoft</a></li>
+                <li>Ett eget exemplar av originalspelet Stunt GP (cd eller installation) — filerna medföljer inte</li>
+                <li>Tangentbord</li>
+              </ul>
+            </div>
+            <div class="panel package">
+              <h3 class="panel__title">Paketets innehåll</h3>
+              <ul class="tree">
+                <li><code>StuntGP_NEW.exe</code><span>spelet (x64, DirectX 12)</span></li>
+                <li><code>START.cmd</code><span>startar spelet med bildinterpolering</span></li>
+                <li><code>START-MENU.cmd</code><span>startar spelet utan interpolering</span></li>
+                <li><code>README.txt</code><span>instruktioner (PL/EN)</span></li>
+                <li><code>data\retail\</code><span>startkonfiguration; kopiera originalspelets filer hit</span></li>
+                <li><code>save\card00\</code><span>mapp för sparade inställningar</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <ol class="countdown" aria-label="Kom igång — fyra steg">
+          <li class="countdown__step">
+            <img class="countdown__sign" src="../assets/img/count-3.png" width="231" height="218" alt="3">
+            <div class="countdown__body">
+              <h3>Ladda ner</h3>
+              <p>Ladda ner arkivet <code>StuntGP_NEW-R1-program.zip</code> och jämför för säkerhets skull dess SHA-256-kontrollsumma.</p>
+            </div>
+          </li>
+          <li class="countdown__step">
+            <img class="countdown__sign" src="../assets/img/count-2.png" width="208" height="229" alt="2">
+            <div class="countdown__body">
+              <h3>Packa upp</h3>
+              <p>Packa upp arkivet på en plats där du har skrivbehörighet, till exempel skrivbordet. Kopiera mapparna <code>wads, graphics24, meshdata, sound</code> från ditt eget exemplar av Stunt GP till <code>data\retail</code>.</p>
+            </div>
+          </li>
+          <li class="countdown__step">
+            <img class="countdown__sign" src="../assets/img/count-1.png" width="189" height="235" alt="1">
+            <div class="countdown__body">
+              <h3>Starta</h3>
+              <p>Dubbelklicka på <code>START.cmd</code>. Om en SmartScreen-varning visas väljer du ”Mer information” → ”Kör ändå”.</p>
+            </div>
+          </li>
+          <li class="countdown__step countdown__step--go">
+            <img class="countdown__sign" src="../assets/img/count-go.png" width="250" height="251" alt="GO">
+            <div class="countdown__body">
+              <h3>Spela!</h3>
+              <p>Välj menyspråk vid första starten. Tryck på <kbd>ENTER</kbd> på titelskärmen, välj SINGLE PLAYER, ett läge och ett fordon — och kör ut på banan.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTROLS ============ -->
+    <section class="section section--dark" id="controls" aria-labelledby="controls-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Kontroller</p>
+          <h2 class="section__title" id="controls-title">Tangenter och startalternativ</h2>
+        </div>
+
+        <div class="controls">
+          <div class="panel controls__keys">
+            <h3 class="panel__title">På banan</h3>
+            <ul class="keys">
+              <li><span class="keycaps"><kbd class="key">↑</kbd></span><span>Gasa</span></li>
+              <li><span class="keycaps"><kbd class="key">↓</kbd></span><span>Bromsa</span></li>
+              <li><span class="keycaps"><kbd class="key">←</kbd><kbd class="key">→</kbd></span><span>Styra</span></li>
+              <li><span class="keycaps"><kbd class="key key--wide">ESC</kbd></span><span>Paus under loppet</span></li>
+            </ul>
+            <h3 class="panel__title">I menyerna</h3>
+            <ul class="keys">
+              <li><span class="keycaps"><kbd class="key">↑</kbd><kbd class="key">↓</kbd><kbd class="key">←</kbd><kbd class="key">→</kbd></span><span>Välja alternativ</span></li>
+              <li><span class="keycaps"><kbd class="key key--wide">ENTER</kbd></span><span>Bekräfta</span></li>
+              <li><span class="keycaps"><kbd class="key">A</kbd><span class="keys__dash">–</span><kbd class="key">Z</kbd></span><span>Skriva in spelarnamnet</span></li>
+            </ul>
+            <p class="note">Tangentbordets standardlayout kommer från originalspelets data. <kbd>MELLANSLAG</kbd>, <kbd>SKIFT</kbd> och <kbd>CTRL</kbd> sköter originallayoutens extra funktioner.</p>
+          </div>
+
+          <div class="panel controls__opts">
+            <h3 class="panel__title">Startalternativ <code>StuntGP_NEW.exe</code></h3>
+            <table class="opts">
+              <thead><tr><th scope="col">Alternativ</th><th scope="col">Funktion</th></tr></thead>
+              <tbody>
+                <tr><td><code>--interpolation</code></td><td>Interpolerar bilden mellan spelstegen — mjukare rörelse på skärmar över 60&nbsp;Hz. Så startar <code>START.cmd</code> spelet.</td></tr>
+                <tr><td><code>--aspect-4x3</code></td><td>Originalbild i 4:3 med svarta kanter. Miljövariabeln <code>SGN_ASPECT=4x3</code> ger samma sak.</td></tr>
+                <tr><td><code>--width 1280 --height 720</code></td><td>Fönsterstorlek (1440×900 som standard).</td></tr>
+                <tr><td><code>SGN_GPU_WORLD=1</code></td><td>Miljövariabel: bangeometrin beräknas på GPU:n. Valfritt, avstängt som standard.</td></tr>
+              </tbody>
+            </table>
+            <div class="codeblock">
+              <code>StuntGP_NEW.exe --interpolation --aspect-4x3</code>
+              <button class="copy-btn" type="button" data-copy="StuntGP_NEW.exe --interpolation --aspect-4x3">Kopiera</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section class="section tile tile--grey" id="status" aria-labelledby="status-title">
+      <div class="container">
+        <div class="section__head">
+          <p class="titlebar">Projektstatus</p>
+          <h2 class="section__title" id="status-title">Ärligt om vad som är klart</h2>
+        </div>
+
+        <div class="status">
+          <div class="panel status__col">
+            <h3 class="panel__title"><span class="status-dot status-dot--ok" aria-hidden="true"></span>Fungerar i R1</h3>
+            <ul class="checklist">
+              <li>Språkval, titelskärm, huvudmeny och lägesmeny</li>
+              <li>Namninmatning, fordonsval och förhandsvisning av banan</li>
+              <li>Lopp mot fem AI-motståndare: start, varv, mål och resultat</li>
+              <li>Paus, HUD, kamera, musik och effekter: partiklar, spår, skugga</li>
+              <li>Stabila 60 steg per sekund och bild i alla bildformat</li>
+            </ul>
+          </div>
+          <div class="panel status__col">
+            <h3 class="panel__title"><span class="status-dot status-dot--wip" aria-hidden="true"></span>Pågår</h3>
+            <ul class="checklist checklist--wip">
+              <li>Sällsynta vägar i spelet som ännu inte har återskapats — de slutar med ett tydligt fel med funktionens namn</li>
+              <li>Full överensstämmelse i bild och speltillstånd med originalet är ännu inte bevisad</li>
+              <li>R1-bygget kontrollerades med upphovspersonens visuella tester och mätningar; automatiska tester och jämförelser med originalet kördes inte för det</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-wrap">
+          <h3 class="subhead">Senaste versionerna</h3>
+          <ol class="timeline">
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R20</span> 2026-09-28</p>
+              <h4>Alla bildformat</h4>
+              <p>Bild över hela fönstret i inbyggd upplösning, Hor+ i loppen, HUD fäst vid kanterna, paus och resultat centrerade, 4:3-menyer med bakgrund ut till fönsterkanterna. Originalets 4:3 med alternativet <code>--aspect-4x3</code>.</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R19</span> 2026-09-28</p>
+              <h4>Prestanda</h4>
+              <p>Stabila 60 bilder per sekund i stället för cirka 13–37 FPS; ett spelsteg inklusive rendering tar cirka 3–5 ms. Spelet startar i huvudmenyn. Valfri bildinterpolering och bangeometri på GPU:n.</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R18</span> 2026-09-28</p>
+              <h4>Ett spel</h4>
+              <p>Meny → bana och läge → lopp → resultat → meny i en spelvärld. Loopens takt är knuten till spelklockan, så 120/144/240 Hz ändrar inte takten. Tangentlayout från speldata.</p>
+            </li>
+            <li class="timeline__item">
+              <p class="timeline__tag"><span class="pill pill--red">R17</span> 2026-09-28</p>
+              <h4>Kompletta fordon</h4>
+              <p>Fordonens uppdateringsrutiner inkopplade: dynamik, stunts, rutt, modelleffekter, partiklar, spår, skugga, repriser, fordonsljud samt bangränser och återkomst till banan.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="method">
+          <h3 class="subhead">Så görs det</h3>
+          <ul class="method__grid">
+            <li class="info-panel"><h4>Ur instruktioner, inte gissningar</h4><p>Återskapat beteende måste hänvisa till den fastlåsta EXE-filen (SHA-256), den dekompilerade funktionen och de exakta instruktionsintervallen. Dekompileringen är inte den ursprungliga källkoden.</p></li>
+            <li class="info-panel"><h4>Jämförelser med originalet</h4><p>Orakel kör originalets oförändrade instruktioner i emulatorn Unicorn och jämför resultaten med den nya koden — till exempel rutinerna för att pausa och återuppta spelet: 13 280 jämförda anrop utan skillnader.</p></li>
+            <li class="info-panel"><h4>Stränga byggen</h4><p>C++23, kompilerat med <code>/W4 /WX</code> — varningar räknas som fel — och <code>/fp:strict</code> för strikt flyttalsaritmetik.</p></li>
+            <li class="info-panel"><h4>Ny plattform, tydligt märkt</h4><p>Fönstret, DirectX 12-renderaren, bildskalningen och presentationstakten är ny kod — märkt som ny, inte som återskapat spelbeteende.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--dark" id="faq" aria-labelledby="faq-title">
+      <div class="container container--narrow">
+        <div class="section__head">
+          <p class="titlebar">FAQ</p>
+          <h2 class="section__title" id="faq-title">Vanliga frågor</h2>
+        </div>
+        <div class="faq">
+          <details class="faq__item"><summary>Är detta det officiella spelet?</summary><p>Nej. StuntGP NEW är ett inofficiellt fanprojekt utan koppling till Team17 Software Ltd. Stunt GP och Team17 är registrerade varumärken som tillhör Team17 Software Limited.</p></details>
+          <details class="faq__item"><summary>Är det en emulator eller ett skal runt den ursprungliga EXE-filen?</summary><p>Nej. Det är ett inbyggt x64-program, nyskrivet i C++23 med en DirectX 12-renderare. Den ursprungliga körbara filen startas inte — den fungerar som förlaga som spelets moduler återskapas ur.</p></details>
+          <details class="faq__item"><summary>Är spelet färdigt?</summary><p>Inte än. R1 är en version under arbete: huvudvägen genom spelet fungerar, men sällsynta fall som ännu inte har återskapats slutar med ett tydligt fel med funktionens namn — i stället för att gissa originalets beteende.</p></details>
+          <details class="faq__item"><summary>Windows visar en varning när jag startar</summary><p><code>StuntGP_NEW.exe</code> är inte digitalt signerad, så SmartScreen-filtret kan blockera den. Välj ”Mer information” → ”Kör ändå”. Jämför för säkerhets skull den nedladdade filens SHA-256-kontrollsumma med värdet i avsnittet <a href="#download">Ladda ner</a>.</p></details>
+          <details class="faq__item"><summary>MSVCP140.dll eller VCRUNTIME140_1.dll saknas</summary><p>Installera Microsoft Visual C++ Redistributable 2015–2022 (x64) från Microsofts webbplats: <a href="https://aka.ms/vs/17/release/vc_redist.x64.exe" rel="noopener">aka.ms/vs/17/release/vc_redist.x64.exe</a>.</p></details>
+          <details class="faq__item"><summary>Fungerar det på en skärm med 144 Hz eller 240 Hz?</summary><p>Ja. Spelet räknar 60 steg per sekund oberoende av skärmens uppdateringsfrekvens, och <code>START.cmd</code> slår på bildinterpolering som gör rörelsen mjukare.</p></details>
+          <details class="faq__item"><summary>Jag har en ultrabred skärm</summary><p>Bilden fyller hela fönstret utan svarta kanter, och loppen visar mer sikt åt sidorna (Hor+). Om du hellre vill ha originalets 4:3-utsnitt startar du spelet med alternativet <code>--aspect-4x3</code>.</p></details>
+          <details class="faq__item"><summary>Finns spelmenyn på svenska?</summary><p>Ja. Vid första starten kan du välja svenska — ett av de sju språken i originalspelets data: engelska, nederländska, tyska, svenska, italienska, spanska och franska.</p></details>
+          <details class="faq__item"><summary>Var sparar spelet inställningarna?</summary><p>I mappen <code>save\card00</code> bredvid <code>StuntGP_NEW.exe</code>. Packa därför upp spelet på en plats där du har skrivbehörighet — till exempel skrivbordet, inte <code>Program Files</code>.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINISH ============ -->
+    <section class="finish tile tile--dark-orange" aria-label="Ladda ner spelet">
+      <div class="container finish__inner">
+        <img class="finish__sign" src="../assets/img/finish.png" width="251" height="211" alt="">
+        <div class="finish__copy">
+          <p class="finish__title">Version R1 väntar vid mållinjen</p>
+          <p class="finish__text">Ladda ner, packa upp, kör <code>START.cmd</code> — och tävla på originalbanorna i Stunt GP.</p>
+        </div>
+        <a class="btn btn--race" href="#download">
+          <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 3v11m0 0 5-5m-5 5-5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          Till nedladdningen
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="../assets/img/stuntgp-logo-small.png" width="88" height="73" alt="">
+        <p><strong>StuntGP NEW</strong><br>En inofficiell fanrekonstruktion av Stunt GP för Windows x64.</p>
+      </div>
+      <div class="footer__legal">
+        <p>Stunt GP © 2001 Team17 Software Ltd. Stunt GP och Team17 är registrerade varumärken som tillhör Team17 Software Limited. Projektet har ingen koppling till Team17 Software Ltd.</p>
+        <p>Skärmbilderna kommer från rekonstruktionen: version R20 från 2026-09-28 och — där det anges — versionen från 2026-09-07. Logotypen, stallens emblem, lägesikonerna, bakgrundsplattorna, språkflaggorna och nedräkningsskyltarna är originalgrafik från spelfilerna; den polska flaggan, som spelet saknar, gjordes i samma stil.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Sidfot">
+        <a href="#download">Ladda ner</a>
+        <a href="#gallery">Galleri</a>
+        <a href="#faq">FAQ</a>
+        <a href="../" data-lang-screen>Språkval</a>
+        <a href="#start">Till toppen ↑</a>
+      </nav>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" data-lightbox aria-label="Visning av skärmbild">
+    <div class="lightbox__stage">
+      <img class="lightbox__img" src="" alt="" data-lightbox-img>
+    </div>
+    <div class="helpbar lightbox__bar">
+      <span class="helpbar__icon" aria-hidden="true">i</span>
+      <span class="helpbar__text" data-lightbox-caption></span>
+      <span class="lightbox__count" data-lightbox-count></span>
+    </div>
+    <button class="round-btn lightbox__prev" type="button" data-lightbox-prev aria-label="Föregående skärmbild">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="round-btn lightbox__next" type="button" data-lightbox-next aria-label="Nästa skärmbild">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="round-btn lightbox__close" type="button" data-lightbox-close aria-label="Stäng visningen">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+    </button>
+  </dialog>
+
+  <script type="application/json" id="i18n">{"lang": "sv", "slideDot": "Skärmbild {n} av {total}: {caption}", "copyOk": "Kopierat", "copyFail": "Markerat — Ctrl+C", "vehAlt": "Skärmen SELECT VEHICLE: {name} från stallet {team}.", "vehCaption": "Fordonsval — {name}, stallet {team} (R20)", "vehicles": [{"team": "wild", "teamName": "Wild Wheels", "name": "Mean Streak", "img": "r20-vehicle-mean-streak", "main": "”En snabb, lätt och följsam racerbil som har mycket att erbjuda dem som vill modifiera sitt fordon.”", "sub": ""}, {"team": "wild", "teamName": "Wild Wheels", "name": "Alley Kat", "img": "r20-vehicle-alley-kat", "main": "”En smäcker och kraftfull katt med klös.”", "sub": ""}, {"team": "aero", "teamName": "Aero Blasters", "name": "Stunt Monkey", "img": "r20-vehicle-stunt-monkey", "main": "”Sluta apa dig! Här kan du släppa lös dina djuriska sidor!”", "sub": ""}, {"team": "speed", "teamName": "Speed Demons", "name": "The Brute", "img": "r20-vehicle-the-brute", "main": "”Ren råstyrka på vägen!”", "sub": ""}, {"team": "speed", "teamName": "Speed Demons", "name": "Sand Shark", "img": "r20-vehicle-sand-shark", "main": "”Denna strandraggare har en given plats på vilken stuntbana som helst.”", "sub": ""}]}</script>
+  <script src="../assets/js/main.js?v=e5737b0e2b" defer></script>
+</body>
+</html>

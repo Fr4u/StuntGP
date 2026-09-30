@@ -1,0 +1,15 @@
+# Authored receiving only. Enabling this does not qualify or activate source flow.
+include_guard(GLOBAL)
+option(SGN_BUILD_SOURCE_PMD_REQUEST_OWNER_RECEIVING "Build canonical PMD request owner receiving" OFF)
+if(SGN_BUILD_SOURCE_PMD_REQUEST_OWNER_RECEIVING)
+  if(NOT TARGET model_resources)
+    message(FATAL_ERROR "Request owner receiving requires the actual model_resources graph")
+  endif()
+  set(SGN_REQUEST_OWNER_RETAIL_ROOT "${PROJECT_SOURCE_DIR}/data/retail" CACHE PATH "Actual NEW retail root")
+  add_executable(source_pmd_request_owner_contracts tests/source_pmd_request_owner_contracts.cpp)
+  target_link_libraries(source_pmd_request_owner_contracts PRIVATE model_resources)
+  foreach(request_case IN ITEMS init_prefix sky_prefix track_prefix reset_prefix lifetime bounds independent_refs)
+    add_test(NAME source_pmd_request_owner_${request_case}
+      COMMAND source_pmd_request_owner_contracts "${request_case}" "${SGN_REQUEST_OWNER_RETAIL_ROOT}")
+  endforeach()
+endif()

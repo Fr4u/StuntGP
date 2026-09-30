@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;1,700;1,800;1,900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <link rel="stylesheet" href="{{ROOT}}assets/css/style.css">
-  <link rel="preload" as="image" href="{{ROOT}}assets/shots/r20-race-temple.webp" type="image/webp">
+  <link rel="preload" as="image" href="{{ROOT}}assets/shots/r1-race-coast-960.webp" imagesrcset="{{ROOT}}assets/shots/r1-race-coast-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-coast-960.webp 960w, {{ROOT}}assets/shots/r1-race-coast.webp 1600w" imagesizes="(max-width: 960px) calc(100vw - 2rem), min(54vw, 680px)" type="image/webp" fetchpriority="high">
 </head>
 <body data-lang="{{html_lang}}">
   <a class="skip-link" href="#content">{{skip_link}}</a>
@@ -30,7 +30,7 @@
   <header class="topbar" data-topbar>
     <div class="topbar__inner">
       <a class="brand" href="#start" aria-label="{{brand_aria}}">
-        <img class="brand__logo" src="{{ROOT}}assets/img/stuntgp-logo-small.png" width="176" height="147" alt="">
+        <img class="brand__logo" src="{{ROOT}}assets/img/stuntgp-logo-small.webp" width="176" height="147" alt="">
         <span class="brand__text">StuntGP <span class="pill pill--red pill--tiny">NEW</span></span>
       </a>
       <nav class="nav" id="site-nav" aria-label="{{nav_aria}}" data-nav>
@@ -77,7 +77,7 @@
               <span class="hero__logo-drop">
                 <span class="hero__logo-hop" data-title-logo>
                   <span class="hero__logo-slide">
-                    <img class="hero__logo" src="{{ROOT}}assets/img/stuntgp-logo.png" width="401" height="334" alt="Stunt GP">
+                    <img class="hero__logo" src="{{ROOT}}assets/img/stuntgp-logo.webp" width="401" height="334" alt="Stunt GP">
                     <span class="pill pill--red pill--big">NEW</span>
                   </span>
                 </span>
@@ -107,16 +107,16 @@
             <div class="frame hero__frame">
               <div class="slideshow" data-slideshow role="region" aria-roledescription="{{slides_role}}" aria-label="{{slides_label}}">
                 <figure class="slideshow__slide is-active" data-caption="{{slide1_caption}}">
-                  <img src="{{ROOT}}assets/shots/r20-race-temple.webp" width="1600" height="900" alt="{{slide1_alt}}" fetchpriority="high">
+                  <img src="{{ROOT}}assets/shots/r1-race-coast-960.webp" srcset="{{ROOT}}assets/shots/r1-race-coast-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-coast-960.webp 960w, {{ROOT}}assets/shots/r1-race-coast.webp 1600w" sizes="(max-width: 960px) calc(100vw - 2rem), min(54vw, 680px)" width="1600" height="900" alt="{{slide1_alt}}" fetchpriority="high">
                 </figure>
                 <figure class="slideshow__slide" data-caption="{{slide2_caption}}">
-                  <img src="{{ROOT}}assets/shots/r20-race-jump.webp" width="1600" height="900" alt="{{slide2_alt}}" loading="lazy">
+                  <img src="{{ROOT}}assets/shots/r1-race-tunnel-250-960.webp" srcset="{{ROOT}}assets/shots/r1-race-tunnel-250-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-tunnel-250-960.webp 960w, {{ROOT}}assets/shots/r1-race-tunnel-250.webp 1600w" sizes="(max-width: 960px) calc(100vw - 2rem), min(54vw, 680px)" width="1600" height="900" alt="{{slide2_alt}}" loading="lazy" decoding="async">
                 </figure>
                 <figure class="slideshow__slide" data-caption="{{slide3_caption}}">
-                  <img src="{{ROOT}}assets/shots/r20-race-go.webp" width="1600" height="900" alt="{{slide3_alt}}" loading="lazy">
+                  <img src="{{ROOT}}assets/shots/r1-race-countdown-960.webp" srcset="{{ROOT}}assets/shots/r1-race-countdown-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-countdown-960.webp 960w, {{ROOT}}assets/shots/r1-race-countdown.webp 1600w" sizes="(max-width: 960px) calc(100vw - 2rem), min(54vw, 680px)" width="1600" height="900" alt="{{slide3_alt}}" loading="lazy" decoding="async">
                 </figure>
                 <figure class="slideshow__slide" data-caption="{{slide4_caption}}">
-                  <img src="{{ROOT}}assets/shots/r20-race-ramp.webp" width="1600" height="900" alt="{{slide4_alt}}" loading="lazy">
+                  <img src="{{ROOT}}assets/shots/r1-race-go-960.webp" srcset="{{ROOT}}assets/shots/r1-race-go-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-go-960.webp 960w, {{ROOT}}assets/shots/r1-race-go.webp 1600w" sizes="(max-width: 960px) calc(100vw - 2rem), min(54vw, 680px)" width="1600" height="900" alt="{{slide4_alt}}" loading="lazy" decoding="async">
                 </figure>
               </div>
             </div>
@@ -234,76 +234,124 @@
 
         <ul class="gallery" data-gallery>
           <li class="gallery__item" data-cat="race">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-race-temple.webp" data-caption="{{g1_caption}}">
-              <img src="{{ROOT}}assets/shots/r20-race-temple-thumb.webp" width="640" height="360" loading="lazy" alt="{{g1_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-coast.webp" data-caption="{{g1_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-coast-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-coast-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-coast-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g1_alt}}">
             </a>
-            <p class="gallery__cap">{{g1_cap}} <span class="tag">R20</span></p>
+            <p class="gallery__cap">{{g1_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="race">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-race-jump.webp" data-caption="{{g2_caption}}">
-              <img src="{{ROOT}}assets/shots/r20-race-jump-thumb.webp" width="640" height="360" loading="lazy" alt="{{g2_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-tunnel-250.webp" data-caption="{{g2_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-tunnel-250-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-tunnel-250-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-tunnel-250-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g2_alt}}">
             </a>
-            <p class="gallery__cap">{{g2_cap}} <span class="tag">R20</span></p>
+            <p class="gallery__cap">{{g2_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="race">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-race-ramp.webp" data-caption="{{g3_caption}}">
-              <img src="{{ROOT}}assets/shots/r20-race-ramp-thumb.webp" width="640" height="360" loading="lazy" alt="{{g3_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-countdown.webp" data-caption="{{g3_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-countdown-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-countdown-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-countdown-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g3_alt}}">
             </a>
-            <p class="gallery__cap">{{g3_cap}} <span class="tag">R20</span></p>
+            <p class="gallery__cap">{{g3_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="race">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-race-go.webp" data-caption="{{g4_caption}}">
-              <img src="{{ROOT}}assets/shots/r20-race-go-thumb.webp" width="640" height="360" loading="lazy" alt="{{g4_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-go.webp" data-caption="{{g4_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-go-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-go-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-go-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g4_alt}}">
             </a>
-            <p class="gallery__cap">{{g4_cap}} <span class="tag">R20</span></p>
+            <p class="gallery__cap">{{g4_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="race">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/arch-race-hangar.webp" data-caption="{{g5_caption}}">
-              <img src="{{ROOT}}assets/shots/arch-race-hangar-thumb.webp" width="640" height="360" loading="lazy" alt="{{g5_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-hangar.webp" data-caption="{{g5_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-hangar-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-hangar-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-hangar-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g5_alt}}">
             </a>
-            <p class="gallery__cap">{{g5_cap}} <span class="tag tag--old">{{date_archive}}</span></p>
+            <p class="gallery__cap">{{g5_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="race">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/arch-time-trial.webp" data-caption="{{g6_caption}}">
-              <img src="{{ROOT}}assets/shots/arch-time-trial-thumb.webp" width="640" height="360" loading="lazy" alt="{{g6_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-stunt-500.webp" data-caption="{{g6_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-stunt-500-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-stunt-500-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-stunt-500-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g6_alt}}">
             </a>
-            <p class="gallery__cap">{{g6_cap}} <span class="tag tag--old">{{date_archive}}</span></p>
+            <p class="gallery__cap">{{g6_cap}} <span class="tag">R1</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-lap-record.webp" data-caption="{{g7_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-lap-record-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-lap-record-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-lap-record-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g7_alt}}">
+            </a>
+            <p class="gallery__cap">{{g7_cap}} <span class="tag">R1</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-beach.webp" data-caption="{{g8_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-beach-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-beach-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-beach-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g8_alt}}">
+            </a>
+            <p class="gallery__cap">{{g8_cap}} <span class="tag">R1</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-loop.webp" data-caption="{{g9_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-loop-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-loop-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-loop-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g9_alt}}">
+            </a>
+            <p class="gallery__cap">{{g9_cap}} <span class="tag">R1</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-back-360.webp" data-caption="{{g10_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-back-360-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-back-360-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-back-360-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g10_alt}}">
+            </a>
+            <p class="gallery__cap">{{g10_cap}} <span class="tag">R1</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-stunt-750.webp" data-caption="{{g11_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-stunt-750-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-stunt-750-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-stunt-750-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g11_alt}}">
+            </a>
+            <p class="gallery__cap">{{g11_cap}} <span class="tag">R1</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-finish.webp" data-caption="{{g12_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-finish-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-finish-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-finish-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g12_alt}}">
+            </a>
+            <p class="gallery__cap">{{g12_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="race menu">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/arch-pause.webp" data-caption="{{g7_caption}}">
-              <img src="{{ROOT}}assets/shots/arch-pause-thumb.webp" width="640" height="360" loading="lazy" alt="{{g7_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-race-results.webp" data-caption="{{g13_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-race-results-thumb.webp" srcset="{{ROOT}}assets/shots/r1-race-results-thumb.webp 480w, {{ROOT}}assets/shots/r1-race-results-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g13_alt}}">
             </a>
-            <p class="gallery__cap">{{g7_cap}} <span class="tag tag--old">{{date_archive}}</span></p>
+            <p class="gallery__cap">{{g13_cap}} <span class="tag">R1</span></p>
+          </li>
+          <li class="gallery__item" data-cat="race menu">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-pause-advanced.webp" data-caption="{{g14_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-pause-advanced-thumb.webp" srcset="{{ROOT}}assets/shots/r1-pause-advanced-thumb.webp 480w, {{ROOT}}assets/shots/r1-pause-advanced-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g14_alt}}">
+            </a>
+            <p class="gallery__cap">{{g14_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="menu">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-title.webp" data-caption="{{g8_caption}}">
-              <img src="{{ROOT}}assets/shots/r20-title-thumb.webp" width="640" height="360" loading="lazy" alt="{{g8_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-title.webp" data-caption="{{g15_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-title-thumb.webp" srcset="{{ROOT}}assets/shots/r1-title-thumb.webp 480w, {{ROOT}}assets/shots/r1-title-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g15_alt}}">
             </a>
-            <p class="gallery__cap">{{g8_cap}} <span class="tag">R20</span></p>
+            <p class="gallery__cap">{{g15_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="menu">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-menu-main.webp" data-caption="{{g9_caption}}">
-              <img src="{{ROOT}}assets/shots/r20-menu-main-thumb.webp" width="640" height="360" loading="lazy" alt="{{g9_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-menu-main.webp" data-caption="{{g16_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-menu-main-thumb.webp" srcset="{{ROOT}}assets/shots/r1-menu-main-thumb.webp 480w, {{ROOT}}assets/shots/r1-menu-main-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g16_alt}}">
             </a>
-            <p class="gallery__cap">{{g9_cap}} <span class="tag">R20</span></p>
+            <p class="gallery__cap">{{g16_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="menu">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-menu-single.webp" data-caption="{{g10_caption}}">
-              <img src="{{ROOT}}assets/shots/r20-menu-single-thumb.webp" width="640" height="360" loading="lazy" alt="{{g10_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-menu-single.webp" data-caption="{{g17_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-menu-single-thumb.webp" srcset="{{ROOT}}assets/shots/r1-menu-single-thumb.webp 480w, {{ROOT}}assets/shots/r1-menu-single-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g17_alt}}">
             </a>
-            <p class="gallery__cap">{{g10_cap}} <span class="tag">R20</span></p>
+            <p class="gallery__cap">{{g17_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="menu">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-language.webp" data-caption="{{g11_caption}}">
-              <img src="{{ROOT}}assets/shots/r20-language-thumb.webp" width="640" height="360" loading="lazy" alt="{{g11_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-select-track.webp" data-caption="{{g18_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-select-track-thumb.webp" srcset="{{ROOT}}assets/shots/r1-select-track-thumb.webp 480w, {{ROOT}}assets/shots/r1-select-track-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g18_alt}}">
             </a>
-            <p class="gallery__cap">{{g11_cap}} <span class="tag">R20</span></p>
+            <p class="gallery__cap">{{g18_cap}} <span class="tag">R1</span></p>
           </li>
           <li class="gallery__item" data-cat="menu">
-            <a class="gallery__link" href="{{ROOT}}assets/shots/r20-track-preview.webp" data-caption="{{g12_caption}}">
-              <img src="{{ROOT}}assets/shots/r20-track-preview-thumb.webp" width="640" height="360" loading="lazy" alt="{{g12_alt}}">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-arcade-results.webp" data-caption="{{g19_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-arcade-results-thumb.webp" srcset="{{ROOT}}assets/shots/r1-arcade-results-thumb.webp 480w, {{ROOT}}assets/shots/r1-arcade-results-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g19_alt}}">
             </a>
-            <p class="gallery__cap">{{g12_cap}} <span class="tag">R20</span></p>
+            <p class="gallery__cap">{{g19_cap}} <span class="tag">R1</span></p>
+          </li>
+          <li class="gallery__item" data-cat="menu">
+            <a class="gallery__link" href="{{ROOT}}assets/shots/r1-unlock.webp" data-caption="{{g20_caption}}">
+              <img src="{{ROOT}}assets/shots/r1-unlock-thumb.webp" srcset="{{ROOT}}assets/shots/r1-unlock-thumb.webp 480w, {{ROOT}}assets/shots/r1-unlock-960.webp 960w" sizes="(max-width: 600px) calc(100vw - 3rem), 360px" width="480" height="270" loading="lazy" decoding="async" alt="{{g20_alt}}">
+            </a>
+            <p class="gallery__cap">{{g20_cap}} <span class="tag">R1</span></p>
           </li>
         </ul>
       </div>
@@ -321,30 +369,30 @@
         <div class="garage" data-garage>
           <div class="garage__teams" role="group" aria-label="{{veh_team_aria}}">
             <button class="team-btn is-selected" type="button" data-team="wild" aria-pressed="true">
-              <img src="{{ROOT}}assets/img/team-wild.png" width="199" height="254" alt="">
+              <img src="{{ROOT}}assets/img/team-wild.webp" loading="lazy" decoding="async" width="199" height="254" alt="">
               <span>Wild Wheels</span>
             </button>
             <button class="team-btn" type="button" data-team="aero" aria-pressed="false">
-              <img src="{{ROOT}}assets/img/team-aero.png" width="254" height="220" alt="">
+              <img src="{{ROOT}}assets/img/team-aero.webp" loading="lazy" decoding="async" width="254" height="220" alt="">
               <span>Aero Blasters</span>
             </button>
             <button class="team-btn" type="button" data-team="speed" aria-pressed="false">
-              <img src="{{ROOT}}assets/img/team-speed.png" width="254" height="244" alt="">
+              <img src="{{ROOT}}assets/img/team-speed.webp" loading="lazy" decoding="async" width="254" height="244" alt="">
               <span>Speed Demons</span>
             </button>
           </div>
 
           <div class="garage__view">
             <div class="frame garage__frame">
-              <a class="garage__zoom" href="{{ROOT}}assets/shots/r20-vehicle-mean-streak.webp" data-garage-zoom>
-                <img class="garage__shot" src="{{ROOT}}assets/shots/r20-vehicle-mean-streak.webp" width="1600" height="900" alt="{{veh1_alt}}" data-garage-shot>
+              <a class="garage__zoom" href="{{ROOT}}assets/shots/{{VEH1_IMG}}.webp" data-garage-zoom>
+                <img class="garage__shot" src="{{ROOT}}assets/shots/{{VEH1_IMG}}-960.webp" srcset="{{ROOT}}assets/shots/{{VEH1_IMG}}-thumb.webp 480w, {{ROOT}}assets/shots/{{VEH1_IMG}}-960.webp 960w, {{ROOT}}assets/shots/{{VEH1_IMG}}.webp 1600w" sizes="(max-width: 960px) calc(100vw - 2rem), min(48vw, 620px)" width="1600" height="900" loading="lazy" decoding="async" alt="{{veh1_alt}}" data-garage-shot>
                 <span class="garage__zoom-hint" aria-hidden="true">{{veh_zoom}}</span>
               </a>
             </div>
             <div class="info-panel garage__info" aria-live="polite">
               <p class="garage__count" data-garage-count>1 / 5</p>
-              <h3 class="garage__name" data-garage-name>Mean Streak</h3>
-              <p class="garage__team" data-garage-team>Wild Wheels</p>
+              <h3 class="garage__name" data-garage-name>{{VEH1_NAME}}</h3>
+              <p class="garage__team" data-garage-team>{{VEH1_TEAM}}</p>
               <p class="garage__pl" data-garage-pl>{{veh1_main}}</p>
               <p class="garage__en" lang="en" data-garage-en{{{VEH1_SUB_HIDDEN}}}>{{veh1_sub_shown}}</p>
               <div class="garage__nav">
@@ -433,28 +481,28 @@
 
         <ol class="countdown" aria-label="{{steps_aria}}">
           <li class="countdown__step">
-            <img class="countdown__sign" src="{{ROOT}}assets/img/count-3.png" width="231" height="218" alt="3">
+            <img class="countdown__sign" src="{{ROOT}}assets/img/count-3.webp" loading="lazy" decoding="async" width="231" height="218" alt="3">
             <div class="countdown__body">
               <h3>{{step1_title}}</h3>
               <p>{{{step1_text}}}</p>
             </div>
           </li>
           <li class="countdown__step">
-            <img class="countdown__sign" src="{{ROOT}}assets/img/count-2.png" width="208" height="229" alt="2">
+            <img class="countdown__sign" src="{{ROOT}}assets/img/count-2.webp" loading="lazy" decoding="async" width="208" height="229" alt="2">
             <div class="countdown__body">
               <h3>{{step2_title}}</h3>
               <p>{{{step2_text}}}</p>
             </div>
           </li>
           <li class="countdown__step">
-            <img class="countdown__sign" src="{{ROOT}}assets/img/count-1.png" width="189" height="235" alt="1">
+            <img class="countdown__sign" src="{{ROOT}}assets/img/count-1.webp" loading="lazy" decoding="async" width="189" height="235" alt="1">
             <div class="countdown__body">
               <h3>{{step3_title}}</h3>
               <p>{{{step3_text}}}</p>
             </div>
           </li>
           <li class="countdown__step countdown__step--go">
-            <img class="countdown__sign" src="{{ROOT}}assets/img/count-go.png" width="250" height="251" alt="GO">
+            <img class="countdown__sign" src="{{ROOT}}assets/img/count-go.webp" loading="lazy" decoding="async" width="250" height="251" alt="GO">
             <div class="countdown__body">
               <h3>{{step4_title}}</h3>
               <p>{{{step4_text}}}</p>
@@ -501,6 +549,7 @@
                 <tr><td><code>SGN_GPU_WORLD=1</code></td><td>{{{opt4}}}</td></tr>
               </tbody>
             </table>
+            <p class="note">{{opts_note}}</p>
             <div class="codeblock">
               <code>StuntGP_NEW.exe --interpolation --aspect-4x3</code>
               <button class="copy-btn" type="button" data-copy="StuntGP_NEW.exe --interpolation --aspect-4x3">{{copy}}</button>
@@ -541,26 +590,19 @@
 
         <div class="timeline-wrap">
           <h3 class="subhead">{{rel_title}}</h3>
-          <ol class="timeline">
-            <li class="timeline__item">
-              <p class="timeline__tag"><span class="pill pill--red">R20</span> {{date_release}}</p>
-              <h4>{{r20_title}}</h4>
-              <p>{{{r20_text}}}</p>
-            </li>
-            <li class="timeline__item">
-              <p class="timeline__tag"><span class="pill pill--red">R19</span> {{date_release}}</p>
-              <h4>{{r19_title}}</h4>
-              <p>{{r19_text}}</p>
-            </li>
-            <li class="timeline__item">
-              <p class="timeline__tag"><span class="pill pill--red">R18</span> {{date_release}}</p>
-              <h4>{{r18_title}}</h4>
-              <p>{{r18_text}}</p>
-            </li>
-            <li class="timeline__item">
-              <p class="timeline__tag"><span class="pill pill--red">R17</span> {{date_release}}</p>
-              <h4>{{r17_title}}</h4>
-              <p>{{r17_text}}</p>
+          <ol class="timeline timeline--single">
+            <li class="timeline__item timeline__item--release">
+              <p class="timeline__tag"><span class="pill pill--red">R1</span> {{date_current}}</p>
+              <h4>{{r1_title}}</h4>
+              <p>{{r1_text}}</p>
+              <ul class="checklist timeline__list">
+                <li>{{r1_item1}}</li>
+                <li>{{r1_item2}}</li>
+                <li>{{r1_item3}}</li>
+                <li>{{r1_item4}}</li>
+                <li>{{r1_item5}}</li>
+                <li>{{r1_item6}}</li>
+              </ul>
             </li>
           </ol>
         </div>
@@ -601,7 +643,7 @@
     <!-- ============ FINISH ============ -->
     <section class="finish tile tile--dark-orange" aria-label="{{fin_aria}}">
       <div class="container finish__inner">
-        <img class="finish__sign" src="{{ROOT}}assets/img/finish.png" width="251" height="211" alt="">
+        <img class="finish__sign" src="{{ROOT}}assets/img/finish.webp" loading="lazy" decoding="async" width="251" height="211" alt="">
         <div class="finish__copy">
           <p class="finish__title">{{fin_title}}</p>
           <p class="finish__text">{{{fin_text}}}</p>
@@ -617,7 +659,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div class="footer__brand">
-        <img src="{{ROOT}}assets/img/stuntgp-logo-small.png" width="88" height="73" alt="">
+        <img src="{{ROOT}}assets/img/stuntgp-logo-small.webp" width="88" height="73" loading="lazy" decoding="async" alt="">
         <p><strong>StuntGP NEW</strong><br>{{foot_desc}}</p>
       </div>
       <div class="footer__legal">

@@ -21,12 +21,14 @@ OUT = HERE.parent / "website"
 # Order of the language screen: Polish first, then the game's own order.
 LANGS = ["pl", "en", "nl", "de", "sv", "it", "es", "fr"]
 
+# Teams as shown on the R1 SELECT VEHICLE screen (gameplay recording of 30.09.2026).
+# Each screenshot exists as <img>.webp (1600 px), <img>-960.webp and <img>-thumb.webp (480 px).
 VEHICLES = [  # key, team id, team name, vehicle name, screenshot
-    ("mean_streak", "wild", "Wild Wheels", "Mean Streak", "r20-vehicle-mean-streak"),
-    ("alley_kat", "wild", "Wild Wheels", "Alley Kat", "r20-vehicle-alley-kat"),
-    ("stunt_monkey", "aero", "Aero Blasters", "Stunt Monkey", "r20-vehicle-stunt-monkey"),
-    ("the_brute", "speed", "Speed Demons", "The Brute", "r20-vehicle-the-brute"),
-    ("sand_shark", "speed", "Speed Demons", "Sand Shark", "r20-vehicle-sand-shark"),
+    ("the_brute", "wild", "Wild Wheels", "The Brute", "r1-vehicle-the-brute"),
+    ("sand_shark", "wild", "Wild Wheels", "Sand Shark", "r1-vehicle-sand-shark"),
+    ("stunt_monkey", "aero", "Aero Blasters", "Stunt Monkey", "r1-vehicle-stunt-monkey"),
+    ("mean_streak", "speed", "Speed Demons", "Mean Streak", "r1-vehicle-mean-streak"),
+    ("alley_kat", "speed", "Speed Demons", "Alley Kat", "r1-vehicle-alley-kat"),
 ]
 
 TOKEN = re.compile(r"\{\{\{\s*([A-Za-z0-9_]+)\s*\}\}\}|\{\{\s*([A-Za-z0-9_]+)\s*\}\}")
@@ -101,7 +103,7 @@ def main():
         if vkeys != {v[0] for v in VEHICLES}:
             sys.exit(f"{code}.json: vehicles mismatch {sorted(vkeys)}")
 
-    special = {"ROOT", "OG_IMAGE", "HEAD_LINKS", "LANG_MENU", "I18N_JSON", "VEH1_SUB_HIDDEN"}
+    special = {"ROOT", "OG_IMAGE", "HEAD_LINKS", "LANG_MENU", "I18N_JSON", "VEH1_SUB_HIDDEN", "VEH1_IMG", "VEH1_NAME", "VEH1_TEAM"}
     derived = {"html_lang", "og_locale", "lang_code", "veh1_main", "veh1_sub_shown", "veh1_alt"} | \
               {f"mode{i}_help_sub_shown" for i in range(1, 6)}
     unused = base_keys - used_keys(page_tpl) - {k for k in base_keys if k.startswith(("js_", "screen_"))}
@@ -131,13 +133,17 @@ def main():
         s["veh1_sub_shown"] = first["sub"]
         s["veh1_alt"] = fmt(s["js_veh_alt"], name=first["name"], team=first["teamName"])
         s["VEH1_SUB_HIDDEN"] = "" if first["sub"] else " hidden"
+        s["VEH1_IMG"] = first["img"]
+        s["VEH1_NAME"] = first["name"]
+        s["VEH1_TEAM"] = first["teamName"]
 
         menu = []
         for other in LANGS:
             cur = ' aria-current="page"' if other == code else ""
             name = html.escape(data[other]["meta"]["lang_name"])
             menu.append(f'          <li><a href="{root}{other}/" hreflang="{other}" lang="{other}" data-lang="{other}"{cur}>'
-                        f'<img src="{root}assets/img/flags/{other}.webp" width="212" height="128" alt=""><span>{name}</span></a></li>')
+                        f'<img src="{root}assets/img/flags/{other}.webp" width="212" height="128" loading="lazy" decoding="async" alt="">'
+                        f'<span>{name}</span></a></li>')
         s["LANG_MENU"] = "\n".join(menu)
 
         if site:

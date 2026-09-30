@@ -604,7 +604,9 @@
   const vehicles = Array.isArray(T.vehicles) ? T.vehicles : [];
   if (garage && vehicles.length) {
     const root = (garage.querySelector('[data-garage-shot]').getAttribute('src') || '').split('assets/')[0];
-    const shotSrc = (v) => `${root}assets/shots/${v.img}.webp`;
+    // Full size (1600 px) for the lightbox; the frame uses the 480/960/1600 variants through srcset.
+    const shotSrc = (v, size = '') => `${root}assets/shots/${v.img}${size}.webp`;
+    const shotSet = (v) => `${shotSrc(v, '-thumb')} 480w, ${shotSrc(v, '-960')} 960w, ${shotSrc(v)} 1600w`;
     const shot = $('[data-garage-shot]', garage);
     const zoom = $('[data-garage-zoom]', garage);
     const name = $('[data-garage-name]', garage);
@@ -619,12 +621,16 @@
     const preload = () => {
       if (preloaded) return;
       preloaded = true;
-      vehicles.forEach((v) => { const pre = new Image(); pre.src = shotSrc(v); });
+      // Warm the cache with the variant the browser picked for the frame.
+      const picked = (shot.currentSrc || '').match(/(-960|-thumb)?\.webp$/);
+      const size = picked && picked[1] ? picked[1] : '';
+      vehicles.forEach((v) => { const pre = new Image(); pre.src = shotSrc(v, size); });
     };
     const altOf = (v) => fill(T.vehAlt, { name: v.name, team: v.teamName });
     const render = () => {
       const v = vehicles[current];
-      shot.src = shotSrc(v);
+      shot.srcset = shotSet(v);
+      shot.src = shotSrc(v, '-960');
       shot.alt = altOf(v);
       if (zoom) zoom.setAttribute('href', shotSrc(v));
       name.textContent = v.name;

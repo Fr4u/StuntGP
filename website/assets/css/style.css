@@ -289,7 +289,6 @@ p:last-child { margin-bottom: 0; }
   text-shadow: none;
   white-space: nowrap;
 }
-.tag--old { background: #4a4a56; border-color: #a2a2b2; }
 
 .hud-label {
   font: italic 900 1.6rem / 1 var(--font-display);
@@ -1273,6 +1272,13 @@ p:last-child { margin-bottom: 0; }
   color: var(--muted);
   font: italic 700 1rem / 1 var(--font-display);
   letter-spacing: 0.05em;
+}
+/* A single release entry spans the whole row; its feature list runs in two columns. */
+.timeline.timeline--single { grid-template-columns: minmax(0, 1fr); }
+.timeline__item--release > p:not(.timeline__tag) { margin: 0; }
+.timeline__list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem 2rem; margin-top: 0.9rem; }
+@media (max-width: 760px) {
+  .timeline__list { grid-template-columns: minmax(0, 1fr); }
 }
 .timeline__item h4,
 .method h4 {
